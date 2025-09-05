@@ -42,36 +42,22 @@ GymFlow là hệ thống quản lý khách hàng và check-in/out tại phòng g
 ### 3.1 High-Level Architecture
 
 ```mermaid
-graph TD
-    subgraph User Interaction
-        User[User/Staff] --> SPA[React SPA]
-    end
-
-    subgraph Backend Services
-        SPA --> Gateway[API Gateway]
-        Gateway --> CustomerService[Customer Service]
-        Gateway --> CheckinService[Check-in/out Service]
-        Gateway --> FaceService[Face Recognition Service]
-        Gateway --> NotificationService[Notification Service]
-    end
-
-    subgraph Data Stores
-        CustomerService --> PostgreSQL[(PostgreSQL)]
-        CheckinService --> PostgreSQL
-        FaceService --> MongoDB[(MongoDB/S3 for images)]
-    end
-
-    subgraph Messaging
-        CheckinService --> MessageBroker((Message Broker))
-        MessageBroker --> NotificationService
-    end
-
-    subgraph Monitoring
-        CustomerService --> Monitoring[Prometheus/Grafana]
-        CheckinService --> Monitoring
-        FaceService --> Monitoring
-        NotificationService --> Monitoring
-    end
+graph TD;
+    User_Staff-->React_SPA;
+    React_SPA-->API_Gateway;
+    API_Gateway-->Customer_Service;
+    API_Gateway-->Check_in_out_Service;
+    API_Gateway-->Face_Recognition_Service;
+    API_Gateway-->Notification_Service;
+    Customer_Service-->PostgreSQL;
+    Check_in_out_Service-->PostgreSQL;
+    Face_Recognition_Service-->MongoDB_S3;
+    Check_in_out_Service-->Message_Broker;
+    Message_Broker-->Notification_Service;
+    Customer_Service-->Prometheus_Grafana;
+    Check_in_out_Service-->Prometheus_Grafana;
+    Face_Recognition_Service-->Prometheus_Grafana;
+    Notification_Service-->Prometheus_Grafana;
 ```
 
 ### 3.2 Deployment
