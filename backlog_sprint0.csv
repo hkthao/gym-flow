@@ -1,0 +1,152 @@
+Title,Body,Labels,Status,Parent
+"Epic 1: Setup DevOps & Environment","## 🎯 Epic
+
+[Mô tả tổng quan về Epic, mục tiêu kinh doanh hoặc tính năng lớn.]
+
+---
+
+## 🚀 User Stories liên quan
+
+- [ ] #issue_number
+- [ ] #issue_number
+
+---
+
+## 📋 Ghi chú
+
+[Thông tin bổ sung, tài liệu tham khảo, hoặc các giả định.]","epic","Backlog",""
+"Task 1.1: Version Control: Git + GitHub repo","## 📝 Mô tả Task
+
+[Mô tả chi tiết công việc kỹ thuật cần thực hiện.]
+
+---
+
+## ✅ Definition of Done (DoD)
+
+- [ ] Code đã được viết và review.
+- [ ] Unit test đã được viết và pass.
+- [ ] Integration test đã được viết và pass.
+- [ ] Tài liệu đã được cập nhật.
+- [ ] Deploy lên môi trường staging thành công.
+
+---
+
+## 📋 Checklist công việc
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+---
+
+## 📎 Ghi chú
+
+- Liên quan đến User Story: #","task","open","Epic 1: Setup DevOps & Environment"
+"Task 1.2: Dockerize từng microservice","## 📝 Mô tả Task
+
+[Mô tả chi tiết công việc kỹ thuật cần thực hiện.]
+
+---
+
+## ✅ Definition of Done (DoD)
+
+- [ ] Code đã được viết và review.
+- [ ] Unit test đã được viết và pass.
+- [ ] Integration test đã được viết và pass.
+- [ ] Tài liệu đã được cập nhật.
+- [ ] Deploy lên môi trường staging thành công.
+
+---
+
+## 📋 Checklist công việc
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+---
+
+## 📎 Ghi chú
+
+- Liên quan đến User Story: #","task","open","Epic 1: Setup DevOps & Environment"
+"Task 1.3: Docker Compose","## 📝 Mô tả Task
+
+[Mô tả chi tiết công việc kỹ thuật cần thực hiện.]
+
+---
+
+## ✅ Definition of Done (DoD)
+
+- [ ] Code đã được viết và review.
+- [ ] Unit test đã được viết và pass.
+- [ ] Integration test đã được viết và pass.
+- [ ] Tài liệu đã được cập nhật.
+- [ ] Deploy lên môi trường staging thành công.
+
+---
+
+## 📋 Checklist công việc
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+---
+
+## 📎 Ghi chú
+
+- Liên quan đến User Story: #","task","open","Epic 1: Setup DevOps & Environment"
+"Task 1.4: CI/CD pipeline","## 📝 Mô tả Task
+
+[Mô tả chi tiết công việc kỹ thuật cần thực hiện.]
+
+---
+
+## ✅ Definition of Done (DoD)
+
+- [ ] Code đã được viết và review.
+- [ ] Unit test đã được viết và pass.
+- [ ] Integration test đã được viết và pass.
+- [ ] Tài liệu đã được cập nhật.
+- [ ] Deploy lên môi trường staging thành công.
+
+---
+
+## 📋 Checklist công việc
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+---
+
+## 📎 Ghi chú
+
+- Liên quan đến User Story: #","task","open","Epic 1: Setup DevOps & Environment"
+"Task 1.5: Monitoring & Logging","## 📝 Mô tả Task
+
+[Mô tả chi tiết công việc kỹ thuật cần thực hiện.]
+
+---
+
+## ✅ Definition of Done (DoD)
+
+- [ ] Code đã được viết và review.
+- [ ] Unit test đã được viết và pass.
+- [ ] Integration test đã được viết và pass.
+- [ ] Tài liệu đã được cập nhật.
+- [ ] Deploy lên môi trường staging thành công.
+
+---
+
+## 📋 Checklist công việc
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+---
+
+## 📎 Ghi chú
+
+- Liên quan đến User Story: #","task","open","Epic 1: Setup DevOps & Environment"
