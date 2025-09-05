@@ -1,0 +1,61 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Linter (Placeholder)
+        run: echo "Running linter..." # Replace with actual linting commands
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    strategy:
+      matrix:
+        service: [ai-face-service, customer-service, checkin-service, auth-service]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python (for ai-face-service)
+        if: matrix.service == 'ai-face-service'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Setup .NET (for ASP.NET Core services)
+        if: contains(fromJSON('["customer-service", "checkin-service", "auth-service"]'), matrix.service)
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0.x'
+      - name: Install dependencies and run tests for ${{ matrix.service }}
+        run: |
+          if [ "${{ matrix.service }}" == "ai-face-service" ]; then
+            pip install -r services/${{ matrix.service }}/requirements.txt
+            pytest services/${{ matrix.service }}/tests
+          else
+            dotnet test services/${{ matrix.service }}
+          fi
+
+  build_and_push:
+    runs-on: ubuntu-latest
+    needs: test
+    strategy:
+      matrix:
+        service: [ai-face-service, customer-service, checkin-service, auth-service]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to Docker Hub (Placeholder)
+        run: echo "Logging into Docker Hub..." # Replace with actual Docker login
+      - name: Build and push Docker image for ${{ matrix.service }}
+        run: |
+          docker build -t your_docker_username/${{ matrix.service }}:latest ./services/${{ matrix.service }}
+          docker push your_docker_username/${{ matrix.service }}:latest # Replace with your Docker username

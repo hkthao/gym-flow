@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  ai-face-service:
+    build: ./services/ai-face-service
+    ports:
+      - "5000:5000"
+    networks:
+      - gymflow-network
+
+  customer-service:
+    build: ./services/customer-service
+    ports:
+      - "5001:5001"
+    networks:
+      - gymflow-network
+
+  checkin-service:
+    build: ./services/checkin-service
+    ports:
+      - "5002:5002"
+    networks:
+      - gymflow-network
+
+  auth-service:
+    build: ./services/auth-service
+    ports:
+      - "5003:5003"
+    networks:
+      - gymflow-network
+
+  postgres-db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: gymflow_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - gymflow-network
+
+networks:
+  gymflow-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
