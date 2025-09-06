@@ -1,6 +1,5 @@
-# GymFlow Project
-
-This repository contains the GymFlow microservices application.
+# gym-flow
+GymFlow - Ứng dụng quản lý khách hàng và check-in/out cho phòng gym, xây dựng theo kiến trúc microservices và CI/CD.
 
 ## Getting Started with Docker Compose
 
@@ -29,7 +28,7 @@ To build and run the services using Docker Compose:
 
 ### Python (ai-face-service)
 
-Navigate to the `ai-face-service` directory and run pytest:
+To run the BDD tests for the `ai-face-service`, navigate to the `services/ai-face-service` directory and run pytest:
 
 ```bash
 cd services/ai-face-service
@@ -94,7 +93,3 @@ To configure branch protection:
     *   **Require status checks to pass before merging.**
     *   Select the **`lint-python`**, **`test-python`**, **`build-and-push-python`**, **`lint-dotnet`**, **`test-dotnet`** and **`build-and-push-dotnet`** jobs from the list of status checks.
 6.  Click **Create**.
-
-### Important Notes
-
-*   **Pull Request Merge**: Pull Requests should only be merged into `main` or `develop` once all associated CI/CD checks have passed.
