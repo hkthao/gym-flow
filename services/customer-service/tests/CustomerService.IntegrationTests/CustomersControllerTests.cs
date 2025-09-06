@@ -13,18 +13,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Collections.Generic;
+using System.Net.Http.Json;
+using Microsoft.AspNetCore.Hosting;
 
 namespace GymFlow.CustomerService.IntegrationTests
 {
-    public class CustomersControllerTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class CustomersControllerTests : IClassFixture<WebApplicationFactory<Program>>
     {
-        private readonly WebApplicationFactory<Startup> _factory;
+        private readonly WebApplicationFactory<Program> _factory;
         private readonly HttpClient _client;
 
-        public CustomersControllerTests(WebApplicationFactory<Startup> factory)
+        public CustomersControllerTests(WebApplicationFactory<Program> factory)
         {
             _factory = factory.WithWebHostBuilder(builder =>
             {
+                builder.UseEnvironment("Development"); // Ensure Development environment is used
                 builder.ConfigureServices(services =>
                 {
                     // Remove the app's ApplicationDbContext registration.

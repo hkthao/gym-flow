@@ -12,6 +12,14 @@ namespace GymFlow.CustomerService.Domain.Entities
         public string FullName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+
+        public Customer()
+        {
+            FullName = string.Empty;
+            Phone = string.Empty;
+            Email = string.Empty;
+            Address = string.Empty;
+        }
         public DateTime? Birthday { get; set; }
         public Gender? Gender { get; set; }
         public string Address { get; set; }
