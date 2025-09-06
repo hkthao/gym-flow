@@ -22,3 +22,7 @@ async def root():
     except ValueError as e:
         logger.error("Face recognition failed", extra={'error': str(e), 'user_id': 'test_user'})
     return {"message": "Hello from AI Face Service"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}

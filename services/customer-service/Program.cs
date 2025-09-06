@@ -14,6 +14,8 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello from Customer Service!");
 
+app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+
 app.Run();
 
 // Ensure to close and flush the logger on application shutdown
