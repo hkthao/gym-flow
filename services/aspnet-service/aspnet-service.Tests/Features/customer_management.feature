@@ -1,7 +1,7 @@
 Feature: Customer Management
 
   Scenario: Create a new customer
-    Given the user is on the customer creation page
-    When the user enters valid customer details
-    And the user clicks the create button
-    Then a new customer should be created
+    Given the customer management service is available
+    When a request to create a new customer with name "John Doe" and email "john.doe@example.com" is sent
+    Then the customer should be created successfully
+    And the customer's ID should be returned

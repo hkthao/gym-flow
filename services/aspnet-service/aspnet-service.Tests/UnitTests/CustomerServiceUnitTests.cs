@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace CustomerService.Tests.UnitTests
+namespace aspnet_service.Tests.UnitTests
 {
     public class CustomerServiceUnitTests
     {
@@ -12,7 +12,7 @@ namespace CustomerService.Tests.UnitTests
             // Act
 
             // Assert
-            Assert.True(true);
+            Assert.True(true); // Placeholder
         }
     }
 }
