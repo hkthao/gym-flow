@@ -1,17 +1,28 @@
-# customer-service/Dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-RUN apt-get update && apt-get install -y curl
-RUN curl -sSL https://dot.net/v1/dotnet-install.sh -o /usr/local/bin/dotnet-install.sh && chmod +x /usr/local/bin/dotnet-install.sh
-RUN /usr/local/bin/dotnet-install.sh --version 8.0.100 --install-dir /usr/share/dotnet
 WORKDIR /src
-COPY ["services/customer-service/customer-service.csproj", "./"]
-RUN dotnet restore "customer-service.csproj"
-COPY services/customer-service/. .
-WORKDIR "/src"
-RUN dotnet build "customer-service.csproj" -c Release -o /app/build
+
+# Copy the solution file and restore dependencies
+COPY services/customer-service/CustomerService.sln ./CustomerService.sln
+COPY services/customer-service/src/CustomerService.Api/CustomerService.Api.csproj services/customer-service/src/CustomerService.Api/
+COPY services/customer-service/src/CustomerService.Application/CustomerService.Application.csproj services/customer-service/src/CustomerService.Application/
+COPY services/customer-service/src/CustomerService.Domain/CustomerService.Domain.csproj services/customer-service/src/CustomerService.Domain/
+COPY services/customer-service/src/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj services/customer-service/src/CustomerService.Infrastructure/
+
+RUN dotnet restore ./CustomerService.sln
+
+# Copy all project files and build
+COPY services/customer-service/src/CustomerService.Api/. services/customer-service/src/CustomerService.Api/
+COPY services/customer-service/src/CustomerService.Application/. services/customer-service/src/CustomerService.Application/
+COPY services/customer-service/src/CustomerService.Domain/. services/customer-service/src/CustomerService.Domain/
+COPY services/customer-service/src/CustomerService.Infrastructure/. services/customer-service/src/CustomerService.Infrastructure/
+
+WORKDIR /src/services/customer-service/src/CustomerService.Api
+RUN dotnet build "CustomerService.Api.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "CustomerService.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-COPY --from=build /app/build .
-EXPOSE 5001
-ENTRYPOINT ["dotnet", "customer-service.dll"]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "CustomerService.Api.dll"]
