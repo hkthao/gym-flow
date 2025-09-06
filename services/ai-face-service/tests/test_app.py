@@ -1,8 +1,11 @@
 import os
 from pytest_bdd import scenario, given, when, then
+from pathlib import Path
 import pytest
 
-@scenario(os.path.join(os.path.dirname(__file__), '..', 'features', 'face_recognition.feature'), 'Recognize a known face')
+feature_file_path = Path(__file__).parent / '../features/face_recognition.feature'
+@scenario(str(feature_file_path), 'Recognize a known face')
+
 def test_recognize_a_known_face():
     pass
 

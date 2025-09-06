@@ -1,5 +1,8 @@
 name: CI/CD Pipeline
 
+# Note: Branch protection rules for develop and main branches need to be configured manually in GitHub repository settings.
+# Require status checks to pass before merging, including all jobs in this CI/CD pipeline.
+
 on:
   push:
     branches: [ main, develop ]
@@ -41,7 +44,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r services/ai-face-service/requirements.txt
     - name: Test with pytest
-      run: pytest services/ai-face-service/tests
+      run: |
+        cd services/ai-face-service
+        pytest tests
 
   build-and-push-python:
     runs-on: ubuntu-latest
