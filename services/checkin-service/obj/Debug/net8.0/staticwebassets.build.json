@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "/P4AnzXAtwFPRmYGkfCD6VgLY37RC4RVgGPHEpV+vM4=",
+  "Source": "checkin-service",
+  "BasePath": "_content/checkin-service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
