@@ -4,3 +4,4 @@ uvicorn
 pytest
 pytest-bdd
 python-json-logger
+prometheus_client
