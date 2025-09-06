@@ -1,0 +1,172 @@
+# Task 1.1: Thiết kế và tạo database schema cho thông tin khách hàng
+
+## 1. ERD Diagram
+
+```mermaid
+erDiagram
+    Customers {
+        GUID Id PK "PK, GUID"
+        string FullName "Required"
+        string Phone "Required, Unique"
+        string Email "Required, Unique"
+        Date Birthday "Optional"
+        Gender Gender "Enum: Male/Female/Other"
+        string Address "Optional"
+        MembershipStatus MembershipStatus "Enum: Active/Inactive/Suspended"
+        DateTime CreatedAt "Default: NOW()"
+        DateTime UpdatedAt "Auto Update"
+    }
+
+    Checkins {
+        GUID Id PK
+        GUID CustomerId FK
+        DateTime InAt
+        DateTime OutAt
+        string Method
+        string LocationId
+    }
+
+    Memberships {
+        GUID Id PK
+        GUID CustomerId FK
+        string Plan
+        DateTime StartDate
+        DateTime EndDate
+        string Status
+    }
+
+    Customers ||--o{ Checkins : "has"
+    Customers ||--o{ Memberships : "has"
+```
+
+## 2. SQL Script (PostgreSQL)
+
+```sql
+CREATE TYPE gender_enum AS ENUM ('Male', 'Female', 'Other');
+CREATE TYPE membership_status_enum AS ENUM ('Active', 'Inactive', 'Suspended');
+
+CREATE TABLE Customers (
+    Id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    FullName VARCHAR(255) NOT NULL,
+    Phone VARCHAR(20) NOT NULL UNIQUE,
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    Birthday DATE,
+    Gender gender_enum,
+    Address VARCHAR(500),
+    MembershipStatus membership_status_enum NOT NULL,
+    CreatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Trigger for UpdatedAt column
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.UpdatedAt = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_customers_updated_at
+BEFORE UPDATE ON Customers
+FOR EACH ROW
+EXECUTE FUNCTION update_updated_at_column();
+
+-- Add foreign key constraints (assuming Checkins and Memberships tables exist)
+-- ALTER TABLE Checkins
+-- ADD CONSTRAINT FK_Checkins_Customers FOREIGN KEY (CustomerId) REFERENCES Customers(Id);
+
+-- ALTER TABLE Memberships
+-- ADD CONSTRAINT FK_Memberships_Customers FOREIGN KEY (CustomerId) REFERENCES Customers(Id);
+```
+
+## 3. C# Entity Class (ASP.NET Core - EF Core)
+
+```csharp
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GymFlow.CustomerService.Core.Entities
+{
+    public enum Gender
+    {
+        Male,
+        Female,
+        Other
+    }
+
+    public enum MembershipStatus
+    {
+        Active,
+        Inactive,
+        Suspended
+    }
+
+    [Table("Customers")]
+    public class Customer
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; } // Using Guid as requested, common in distributed systems
+
+        [Required]
+        [MaxLength(255)]
+        public string FullName { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string Phone { get; set; }
+
+        [Required]
+        [MaxLength(255)]
+        public string Email { get; set; }
+
+        public DateTime? Birthday { get; set; } // Nullable DateTime for optional Date
+
+        public Gender? Gender { get; set; } // Nullable enum for optional Gender
+
+        [MaxLength(500)]
+        public string Address { get; set; }
+
+        [Required]
+        public MembershipStatus MembershipStatus { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // Default to UTC Now
+
+        public DateTime UpdatedAt { get; set; } // Will be updated by database trigger or EF Core SaveChanges interceptor
+
+        // Navigation properties for relationships (assuming Checkin and Membership entities exist)
+        // public ICollection<Checkin> Checkins { get; set; }
+        // public Membership MembershipPlan { get; set; } // For n-1 relationship, if a customer belongs to one membership plan
+    }
+}
+```
+
+## 4. Giải thích thiết kế
+
+### 4.1. Lựa chọn kiểu dữ liệu và thuộc tính
+
+*   **Id (UUID/GUID):** Chọn `UUID` (GUID trong C#) làm khóa chính. `UUID` phù hợp cho các hệ thống phân tán (microservices) vì nó có thể được tạo ra độc lập mà không cần liên hệ với database, giảm thiểu xung đột ID và dễ dàng mở rộng. `DEFAULT gen_random_uuid()` trong PostgreSQL tự động tạo UUID khi insert.
+*   **FullName, Phone, Email, Address:** Sử dụng `VARCHAR` với độ dài phù hợp để lưu trữ chuỗi. `Phone` và `Email` được đánh dấu `UNIQUE` và `NOT NULL` để đảm bảo tính duy nhất và bắt buộc, phù hợp với yêu cầu nghiệp vụ về thông tin liên lạc duy nhất của khách hàng.
+*   **Birthday:** `DATE` là kiểu dữ liệu phù hợp cho ngày sinh. `Nullable` trong C# (`DateTime?`) cho phép trường này là tùy chọn.
+*   **Gender & MembershipStatus (ENUM):** Sử dụng kiểu `ENUM` trong PostgreSQL (`gender_enum`, `membership_status_enum`) để đảm bảo tính toàn vẹn dữ liệu và giới hạn các giá trị hợp lệ. Trong C#, các `enum` tương ứng được định nghĩa để ánh xạ trực tiếp với các kiểu `ENUM` của database thông qua EF Core. Việc này giúp code rõ ràng, dễ đọc và giảm thiểu lỗi chính tả.
+*   **CreatedAt & UpdatedAt:**
+    *   `CreatedAt`: `TIMESTAMP WITH TIME ZONE` để lưu trữ thời gian tạo với thông tin múi giờ, đảm bảo tính nhất quán khi hệ thống hoạt động trên nhiều múi giờ khác nhau. `DEFAULT CURRENT_TIMESTAMP` tự động gán giá trị khi bản ghi được tạo.
+    *   `UpdatedAt`: Cũng là `TIMESTAMP WITH TIME ZONE`. Một `TRIGGER` trong PostgreSQL được tạo để tự động cập nhật giá trị này mỗi khi bản ghi được sửa đổi. Điều này giúp theo dõi lịch sử thay đổi của dữ liệu.
+
+### 4.2. Quan hệ
+
+*   **Customers - Checkins (1-n):**
+    *   Mỗi khách hàng có thể có nhiều bản ghi check-in.
+    *   Quan hệ này được thể hiện bằng việc thêm `CustomerId` (khóa ngoại) vào bảng `Checkins`, tham chiếu đến `Id` của bảng `Customers`.
+    *   Trong C# `Customer` entity, một `ICollection<Checkin>` sẽ được thêm vào để biểu diễn mối quan hệ này (navigation property).
+*   **Customers - Memberships (n-1):**
+    *   Mỗi khách hàng thuộc về một gói hội viên (membership plan) duy nhất tại một thời điểm.
+    *   Quan hệ này được thể hiện bằng việc thêm `CustomerId` (khóa ngoại) vào bảng `Memberships`, tham chiếu đến `Id` của bảng `Customers`.
+    *   Trong C# `Customer` entity, một thuộc tính `MembershipPlan` kiểu `Membership` sẽ được thêm vào để biểu diễn mối quan hệ này (navigation property).
+
+### 4.3. Lý do chọn EF Core và PostgreSQL
+
+*   **ASP.NET Core & EF Core:** Đây là nền tảng chính được chỉ định. EF Core là một ORM mạnh mẽ, giúp ánh xạ các đối tượng C# trực tiếp tới database schema, giảm thiểu việc viết SQL thủ công và tăng tốc độ phát triển. Nó cũng hỗ trợ các tính năng như Migrations để quản lý thay đổi schema database.
+*   **PostgreSQL:** Được ưu tiên sử dụng. PostgreSQL là một hệ quản trị cơ sở dữ liệu quan hệ mã nguồn mở mạnh mẽ, đáng tin cậy, có khả năng mở rộng cao và hỗ trợ nhiều tính năng nâng cao như kiểu dữ liệu `UUID`, `ENUM`, `TIMESTAMP WITH TIME ZONE`, và các hàm `gen_random_uuid()`, `NOW()` rất phù hợp với yêu cầu thiết kế.
