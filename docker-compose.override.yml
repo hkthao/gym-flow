@@ -12,3 +12,20 @@ services:
       - '--storage.tsdb.path=/prometheus'
     networks:
       - gymflow-network
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - gymflow-network
+    depends_on:
+      - prometheus
+
+volumes:
+  grafana_data:
