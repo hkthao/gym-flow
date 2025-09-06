@@ -51,3 +51,6 @@ node_modules/
 # Other
 *.swp
 commit_message.txt
+
+# Untrack .dll files
+*.dll
