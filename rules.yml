@@ -1,0 +1,11 @@
+groups:
+  - name: service-alerts
+    rules:
+      - alert: ServiceDown
+        expr: up{job=~"ai-face-service|auth-service|checkin-service|customer-service"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Service {{ $labels.job }} is down"
+          description: "The service {{ $labels.job }} is not reachable for more than 1 minute."
