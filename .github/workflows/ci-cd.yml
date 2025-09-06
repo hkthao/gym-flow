@@ -1,5 +1,8 @@
 name: CI/CD Pipeline
 
+# Note: Branch protection rules for develop and main branches need to be configured manually in GitHub repository settings.
+# Require status checks to pass before merging, including all jobs in this CI/CD pipeline.
+
 on:
   push:
     branches: [ main, develop ]
@@ -67,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [ 'auth-service', 'checkin-service', 'customer-service' ]
+        service: [ 'auth-service', 'checkin-service', 'customer-service', 'aspnet-service' ]
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -84,7 +87,7 @@ jobs:
     needs: lint-dotnet
     strategy:
       matrix:
-        service: [ 'auth-service', 'checkin-service', 'customer-service' ]
+        service: [ 'auth-service', 'checkin-service', 'customer-service', 'aspnet-service' ]
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -101,7 +104,7 @@ jobs:
     needs: test-dotnet
     strategy:
       matrix:
-        service: [ 'auth-service', 'checkin-service', 'customer-service' ]
+        service: [ 'auth-service', 'checkin-service', 'customer-service', 'aspnet-service' ]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Docker Buildx
