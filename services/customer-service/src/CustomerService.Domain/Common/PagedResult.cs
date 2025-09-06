@@ -8,6 +8,8 @@ namespace GymFlow.CustomerService.Domain.Common
         public IEnumerable<T> Data { get; set; }
         public PaginationMetadata Pagination { get; set; }
 
+        public PagedResult() { }
+
         public PagedResult(IEnumerable<T> data, int pageNumber, int pageSize, int totalRecords)
         {
             Data = data;

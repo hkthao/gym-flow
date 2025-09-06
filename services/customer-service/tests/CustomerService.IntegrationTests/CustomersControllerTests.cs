@@ -87,7 +87,7 @@ namespace GymFlow.CustomerService.IntegrationTests
         public async Task GetCustomerById_ReturnsCustomer_WhenCustomerExists()
         {
             // Arrange
-            var customerId = (await _client.GetFromJsonAsync<List<Customer>>("/api/Customers")).First().Id;
+            var customerId = (await _client.GetFromJsonAsync<GymFlow.CustomerService.Domain.Common.PagedResult<GymFlow.CustomerService.Application.DTOs.CustomerDto>>("/api/Customers")).Data.First().Id;
 
             // Act
             var response = await _client.GetAsync($"/api/Customers/{customerId}");
@@ -113,7 +113,7 @@ namespace GymFlow.CustomerService.IntegrationTests
             // Assert
             response.EnsureSuccessStatusCode();
             response.StatusCode.Should().Be(HttpStatusCode.Created);
-            var createdCustomer = await response.Content.ReadAsAsync<Customer>();
+            var createdCustomer = await response.Content.ReadAsAsync<GymFlow.CustomerService.Application.DTOs.CustomerDto>();
             createdCustomer.Should().NotBeNull();
             createdCustomer.FullName.Should().Be(newCustomer.FullName);
         }
@@ -122,7 +122,7 @@ namespace GymFlow.CustomerService.IntegrationTests
         public async Task PutCustomer_ReturnsNoContent_WhenCustomerIsValid()
         {
             // Arrange
-            var customerToUpdate = (await _client.GetFromJsonAsync<List<Customer>>("/api/Customers")).First();
+            var customerToUpdate = (await _client.GetFromJsonAsync<GymFlow.CustomerService.Domain.Common.PagedResult<GymFlow.CustomerService.Application.DTOs.CustomerDto>>("/api/Customers")).Data.First();
             customerToUpdate.FullName = "Updated Name";
             var json = JsonConvert.SerializeObject(customerToUpdate);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -139,7 +139,7 @@ namespace GymFlow.CustomerService.IntegrationTests
         public async Task DeleteCustomer_ReturnsNoContent_WhenCustomerExists()
         {
             // Arrange
-            var customerToDeleteId = (await _client.GetFromJsonAsync<List<Customer>>("/api/Customers")).Last().Id;
+            var customerToDeleteId = (await _client.GetFromJsonAsync<GymFlow.CustomerService.Domain.Common.PagedResult<GymFlow.CustomerService.Application.DTOs.CustomerDto>>("/api/Customers")).Data.Last().Id;
 
             // Act
             var response = await _client.DeleteAsync($"/api/Customers/{customerToDeleteId}");
