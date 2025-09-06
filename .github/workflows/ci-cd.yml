@@ -99,7 +99,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore services/${{ matrix.service }}
       - name: Test
-        run: dotnet test services/${{ matrix.service }}.csproj --no-restore
+        run: dotnet test services/${{ matrix.service }} --no-restore
 
   build-and-push-dotnet:
     runs-on: ubuntu-latest
