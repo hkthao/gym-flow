@@ -1,0 +1,52 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscfg
+*.sln.docstates
+
+# Build Artifacts
+bin/
+obj/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.pytest_cache/
+
+# .NET
+[Bb]in/
+[Oo]bj/
+*.csproj.user
+*.vspscc
+*.vssscc
+*.vshost
+*.bak
+*.nupkg
+*.resharper
+*.dotCover
+
+# Node.js
+node_modules/
+
+# Logs and Temporary Files
+*.log
+*~
+*.bak
+*.tmp
+
+# Docker
+*.dockerignore
+
+# Other
+*.swp
