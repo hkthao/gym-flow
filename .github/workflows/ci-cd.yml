@@ -44,7 +44,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r services/ai-face-service/requirements.txt
     - name: Test with pytest
-      run: pytest services/ai-face-service/tests
+      run: |
+        cd services/ai-face-service
+        pytest tests
 
   build-and-push-python:
     runs-on: ubuntu-latest
