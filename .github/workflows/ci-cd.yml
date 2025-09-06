@@ -78,7 +78,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "8.0.100"
+          dotnet-version: "8.0.413"
       - name: Restore dependencies
         run: dotnet restore services/${{ matrix.service }}
       - name: Lint
@@ -95,7 +95,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "8.0.100"
+          dotnet-version: "8.0.413"
       - name: Restore dependencies
         run: dotnet restore services/${{ matrix.service }}
       - name: Test
