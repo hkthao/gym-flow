@@ -1,5 +1,12 @@
 version: '3.8'
 
+# Định nghĩa cấu hình logging chung
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "5"
+
 services:
   ai-face-service:
     build: ./services/ai-face-service
@@ -7,6 +14,7 @@ services:
       - "5000:5000"
     networks:
       - gymflow-network
+    logging: *default-logging
 
   customer-service:
     build: ./services/customer-service
@@ -14,6 +22,7 @@ services:
       - "5001:5001"
     networks:
       - gymflow-network
+    logging: *default-logging
 
   checkin-service:
     build: ./services/checkin-service
@@ -21,6 +30,7 @@ services:
       - "5002:5002"
     networks:
       - gymflow-network
+    logging: *default-logging
 
   auth-service:
     build: ./services/auth-service
@@ -28,6 +38,7 @@ services:
       - "5003:5003"
     networks:
       - gymflow-network
+    logging: *default-logging
 
   postgres-db:
     image: postgres:13
@@ -39,6 +50,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - gymflow-network
+    logging: *default-logging
 
 networks:
   gymflow-network:

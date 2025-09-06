@@ -1,0 +1,35 @@
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+
+rule_files:
+  - 'rules.yml'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['alertmanager:9093'] # Alertmanager service in docker-compose.override.yml
+
+scrape_configs:
+  - job_name: 'ai-face-service'
+    static_configs:
+      - targets: ['ai-face-service:8000'] # Port 8000 for Prometheus metrics
+    metrics_path: '/metrics'
+
+  - job_name: 'auth-service'
+    static_configs:
+      - targets: ['auth-service:8080'] # Default ASP.NET Core port
+    metrics_path: '/metrics'
+
+  - job_name: 'checkin-service'
+    static_configs:
+      - targets: ['checkin-service:8080']
+    metrics_path: '/metrics'
+
+  - job_name: 'customer-service'
+    static_configs:
+      - targets: ['customer-service:8080']
+    metrics_path: '/metrics'
+
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']

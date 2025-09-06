@@ -93,3 +93,49 @@ To configure branch protection:
     *   **Require status checks to pass before merging.**
     *   Select the **`lint-python`**, **`test-python`**, **`build-and-push-python`**, **`lint-dotnet`**, **`test-dotnet`** and **`build-and-push-dotnet`** jobs from the list of status checks.
 6.  Click **Create**.
+
+## Monitoring and Logging with Prometheus and Grafana
+
+This project integrates Prometheus for metrics collection and Grafana for visualization, along with centralized JSON logging.
+
+### Running Prometheus and Grafana
+
+To run Prometheus and Grafana alongside your services, use the `docker-compose.override.yml` file:
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+```
+
+This command will start all your microservices, plus Prometheus and Grafana.
+
+### Accessing Grafana Dashboard
+
+Once Grafana is running, you can access its dashboard:
+
+1.  Open your web browser and navigate to `http://localhost:3000`.
+2.  Log in with the default credentials: Username `admin`, Password `admin`. You will be prompted to change the password on your first login.
+3.  **Add Prometheus Data Source:**
+    *   Click on the "Configuration" (gear icon) on the left sidebar.
+    *   Select "Data sources".
+    *   Click "Add data source".
+    *   Choose "Prometheus".
+    *   Set the "Name" to `Prometheus`.
+    *   Set the "HTTP" -> "URL" to `http://prometheus:9090`.
+    *   Click "Save & Test".
+4.  You can now create dashboards to visualize your application metrics. Refer to the Grafana documentation for detailed dashboard creation.
+
+### Viewing Centralized Logs
+
+All microservices are configured to output logs in JSON format, which are collected by Docker's `json-file` logging driver. You can view these centralized logs using `docker-compose logs`:
+
+```bash
+docker-compose logs <service_name>
+```
+
+Replace `<service_name>` with `ai-face-service`, `auth-service`, `checkin-service`, or `customer-service`.
+
+To view all logs in real-time:
+
+```bash
+docker-compose logs -f
+```

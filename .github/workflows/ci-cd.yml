@@ -1,8 +1,5 @@
 name: CI/CD Pipeline
 
-# Note: Branch protection rules for develop and main branches need to be configured manually in GitHub repository settings.
-# Require status checks to pass before merging, including all jobs in this CI/CD pipeline.
-
 on:
   push:
     branches: [main, develop]
@@ -25,9 +22,7 @@ jobs:
           pip install flake8
       - name: Lint with flake8
         run: |
-          # stop the build if there are Python syntax errors or undefined names
           flake8 services/ai-face-service --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 services/ai-face-service --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
   test-python:
@@ -76,9 +71,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "8.0.x"
+          dotnet-version: "8.0.100"
       - name: Restore dependencies
         run: dotnet restore services/${{ matrix.service }}
       - name: Lint
@@ -93,9 +88,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "8.0.x"
+          dotnet-version: "8.0.100"
       - name: Restore dependencies
         run: dotnet restore services/${{ matrix.service }}
       - name: Test
