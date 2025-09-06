@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["services/checkin-service/checkin-service.csproj", "./"]
 RUN dotnet restore "checkin-service.csproj"
-COPY . .
+COPY services/checkin-service/. .
 WORKDIR "/src"
 RUN dotnet build "checkin-service.csproj" -c Release -o /app/build
 

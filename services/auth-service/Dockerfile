@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["services/auth-service/auth-service.csproj", "./"]
 RUN dotnet restore "auth-service.csproj"
-COPY . .
+COPY services/auth-service/. .
 WORKDIR "/src"
 RUN dotnet build "auth-service.csproj" -c Release -o /app/build
 
