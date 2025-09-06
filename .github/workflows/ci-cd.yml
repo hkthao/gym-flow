@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [ 'auth-service', 'checkin-service', 'customer-service', 'aspnet-service' ]
+        service: [ 'auth-service', 'checkin-service', 'customer-service' ]
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -87,7 +87,7 @@ jobs:
     needs: lint-dotnet
     strategy:
       matrix:
-        service: [ 'auth-service', 'checkin-service', 'customer-service', 'aspnet-service' ]
+        service: [ 'auth-service', 'checkin-service', 'customer-service' ]
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -104,7 +104,7 @@ jobs:
     needs: test-dotnet
     strategy:
       matrix:
-        service: [ 'auth-service', 'checkin-service', 'customer-service', 'aspnet-service' ]
+        service: [ 'auth-service', 'checkin-service', 'customer-service' ]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Docker Buildx
