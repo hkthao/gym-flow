@@ -1,5 +1,6 @@
 using GymFlow.CustomerService.Application.Interfaces;
 using GymFlow.CustomerService.Domain.Entities;
+using GymFlow.CustomerService.Domain.Interfaces; // Added
 using GymFlow.CustomerService.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ namespace GymFlow.CustomerService.Application.Services
 {
     public class CustomerService : ICustomerService
     {
-        private readonly CustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public CustomerService(CustomerRepository customerRepository)
+        public CustomerService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }

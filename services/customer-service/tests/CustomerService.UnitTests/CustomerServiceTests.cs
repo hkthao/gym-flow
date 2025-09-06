@@ -7,19 +7,20 @@ using GymFlow.CustomerService.Application.Services;
 using GymFlow.CustomerService.Application.Interfaces;
 using GymFlow.CustomerService.Domain.Entities;
 using GymFlow.CustomerService.Infrastructure.Repositories;
+using GymFlow.CustomerService.Domain.Interfaces;
 using System.Collections.Generic;
 
 namespace GymFlow.CustomerService.UnitTests
 {
     public class CustomerServiceTests
     {
-        private readonly Mock<CustomerRepository> _mockCustomerRepository;
+        private readonly Mock<ICustomerRepository> _mockCustomerRepository;
         private readonly ICustomerService _customerService;
 
         public CustomerServiceTests()
         {
-            _mockCustomerRepository = new Mock<CustomerRepository>(null); // Pass null for DbContext, as it's mocked
-            _customerService = new CustomerService(_mockCustomerRepository.Object);
+            _mockCustomerRepository = new Mock<ICustomerRepository>(); // No need for null now
+            _customerService = new GymFlow.CustomerService.Application.Services.CustomerService(_mockCustomerRepository.Object);
         }
 
         [Fact]

@@ -1,9 +1,34 @@
+using GymFlow.CustomerService.Application.Interfaces;
+using GymFlow.CustomerService.Application.Services;
+using GymFlow.CustomerService.Domain.Interfaces; // Added
+using GymFlow.CustomerService.Infrastructure.Persistence;
+using GymFlow.CustomerService.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using FluentValidation.AspNetCore;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(); // Add NewtonsoftJson for compatibility with ReadAsAsync
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configure PostgreSQL DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register Repositories
+builder.Services.AddScoped<GymFlow.CustomerService.Domain.Interfaces.ICustomerRepository, CustomerRepository>();
+
+// Register Services
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+// Add FluentValidation
+builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 
@@ -16,29 +41,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseRouting(); // Add UseRouting
 
-app.MapGet("/weatherforecast", () =>
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints => // Add UseEndpoints
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+    endpoints.MapControllers();
+});
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public partial class Program { } // Make the Program class public for WebApplicationFactory
