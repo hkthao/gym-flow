@@ -106,5 +106,37 @@ namespace GymFlow.CustomerService.UnitTests
             _mockCustomerRepository.Verify(repo => repo.Delete(It.Is<Customer>(c => c.Id == customerId)), Times.Once);
             _mockCustomerRepository.Verify(repo => repo.SaveChangesAsync(), Times.Once);
         }
+
+        [Fact]
+        public async Task SearchCustomersAsync_ShouldReturnPagedResult_WithCorrectPagination()
+        {
+            // Arrange
+            var keyword = "Test";
+            var pageNumber = 1;
+            var pageSize = 5;
+            var totalRecords = 10;
+            var customers = new List<Customer>
+            {
+                new Customer { Id = Guid.NewGuid(), FullName = "Test Customer 1" },
+                new Customer { Id = Guid.NewGuid(), FullName = "Test Customer 2" },
+                new Customer { Id = Guid.NewGuid(), FullName = "Test Customer 3" },
+                new Customer { Id = Guid.NewGuid(), FullName = "Test Customer 4" },
+                new Customer { Id = Guid.NewGuid(), FullName = "Test Customer 5" }
+            };
+
+            _mockCustomerRepository.Setup(repo => repo.SearchCustomersAsync(keyword, pageNumber, pageSize))
+                                   .ReturnsAsync((customers, totalRecords));
+
+            // Act
+            var result = await _customerService.SearchCustomersAsync(keyword, pageNumber, pageSize);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Data.Should().HaveCount(pageSize);
+            result.Pagination.PageNumber.Should().Be(pageNumber);
+            result.Pagination.PageSize.Should().Be(pageSize);
+            result.Pagination.TotalRecords.Should().Be(totalRecords);
+            result.Pagination.TotalPages.Should().Be((int)Math.Ceiling(totalRecords / (double)pageSize));
+        }
     }
 }

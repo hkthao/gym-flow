@@ -56,5 +56,25 @@ namespace GymFlow.CustomerService.Infrastructure.Repositories
         {
             return await _context.Customers.FirstOrDefaultAsync(c => c.Email == email);
         }
+
+        public virtual async Task<(IEnumerable<Customer> customers, int totalRecords)> SearchCustomersAsync(string? keyword, int pageNumber, int pageSize)
+        {
+            var query = _context.Customers.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(c => c.FullName.Contains(keyword) ||
+                                         c.Phone.Contains(keyword) ||
+                                         c.Email.Contains(keyword));
+            }
+
+            var totalRecords = await query.CountAsync();
+
+            var customers = await query.Skip((pageNumber - 1) * pageSize)
+                                       .Take(pageSize)
+                                       .ToListAsync();
+
+            return (customers, totalRecords);
+        }
     }
 }

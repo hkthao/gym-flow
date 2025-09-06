@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GymFlow.CustomerService.Application.DTOs;
+using GymFlow.CustomerService.Domain.Common;
 
 namespace GymFlow.CustomerService.Api.Controllers
 {
@@ -20,9 +22,12 @@ namespace GymFlow.CustomerService.Api.Controllers
 
         // GET: api/Customers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomers(
+            [FromQuery] string? search = null,
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10)
         {
-            var customers = await _customerService.GetAllCustomersAsync();
+            var customers = await _customerService.SearchCustomersAsync(search, pageNumber, pageSize);
             return Ok(customers);
         }
 

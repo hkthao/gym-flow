@@ -1,10 +1,13 @@
 using GymFlow.CustomerService.Application.Interfaces;
 using GymFlow.CustomerService.Domain.Entities;
-using GymFlow.CustomerService.Domain.Interfaces; // Added
+using GymFlow.CustomerService.Domain.Interfaces;
 using GymFlow.CustomerService.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GymFlow.CustomerService.Application.DTOs;
+using GymFlow.CustomerService.Domain.Common;
+using System.Linq; // For Select
 
 namespace GymFlow.CustomerService.Application.Services
 {
@@ -84,6 +87,27 @@ namespace GymFlow.CustomerService.Application.Services
 
             _customerRepository.Delete(customerToDelete);
             await _customerRepository.SaveChangesAsync();
+        }
+
+        public async Task<PagedResult<CustomerDto>> SearchCustomersAsync(string? keyword, int pageNumber, int pageSize)
+        {
+            var (customers, totalRecords) = await _customerRepository.SearchCustomersAsync(keyword, pageNumber, pageSize);
+
+            var customerDtos = customers.Select(c => new CustomerDto
+            {
+                Id = c.Id,
+                FullName = c.FullName,
+                Phone = c.Phone,
+                Email = c.Email,
+                Birthday = c.Birthday,
+                Gender = c.Gender,
+                Address = c.Address,
+                MembershipStatus = c.MembershipStatus,
+                CreatedAt = c.CreatedAt,
+                UpdatedAt = c.UpdatedAt
+            });
+
+            return new PagedResult<CustomerDto>(customerDtos, pageNumber, pageSize, totalRecords);
         }
     }
 }

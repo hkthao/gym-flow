@@ -148,5 +148,44 @@ namespace GymFlow.CustomerService.IntegrationTests
             response.EnsureSuccessStatusCode();
             response.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
+
+        [Fact]
+        public async Task GetCustomers_WithSearchAndPagination_ReturnsFilteredAndPagedResult()
+        {
+            // Arrange
+            // Seed more data for pagination and search
+            using (var scope = _factory.Services.CreateScope())
+            {
+                var scopedServices = scope.ServiceProvider;
+                var db = scopedServices.GetRequiredService<ApplicationDbContext>();
+
+                if (!db.Customers.Any(c => c.FullName.Contains("SearchTest")))
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        db.Customers.Add(new Customer { Id = Guid.NewGuid(), FullName = $"SearchTest Customer {i}", Phone = $"99999999{i:00}", Email = $"search{i}@example.com", MembershipStatus = Domain.Enums.MembershipStatus.Active, CreatedAt = DateTime.UtcNow, UpdatedAt = DateTime.UtcNow });
+                    }
+                    db.SaveChanges();
+                }
+            }
+
+            var searchKeyword = "SearchTest";
+            var pageNumber = 2;
+            var pageSize = 5;
+
+            // Act
+            var response = await _client.GetAsync($"/api/Customers?search={searchKeyword}&pageNumber={pageNumber}&pageSize={pageSize}");
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+            var pagedResult = await response.Content.ReadAsAsync<GymFlow.CustomerService.Domain.Common.PagedResult<GymFlow.CustomerService.Domain.Entities.Customer>>();
+
+            pagedResult.Should().NotBeNull();
+            pagedResult.Data.Should().HaveCount(pageSize);
+            pagedResult.Pagination.PageNumber.Should().Be(pageNumber);
+            pagedResult.Pagination.PageSize.Should().Be(pageSize);
+            pagedResult.Pagination.TotalRecords.Should().BeGreaterThanOrEqualTo(20); // At least 20 seeded customers
+            pagedResult.Pagination.TotalPages.Should().BeGreaterThanOrEqualTo(4); // 20 customers / 5 per page = 4 pages
+        }
     }
 }
