@@ -3,3 +3,4 @@ fastapi
 uvicorn
 pytest
 pytest-bdd
+python-json-logger

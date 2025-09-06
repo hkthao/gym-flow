@@ -1,37 +1,24 @@
 # ai-face-service/app.py
-import logging
-import json
 from fastapi import FastAPI
+from .logging_config import setup_logging
+import logging
 
-# Custom JSON formatter
-class JsonFormatter(logging.Formatter):
-    def format(self, record):
-        log_record = {
-            "timestamp": self.formatTime(record, self.datefmt),
-            "level": record.levelname,
-            "message": record.getMessage(),
-            "name": record.name,
-            "pathname": record.pathname,
-            "lineno": record.lineno,
-            "funcName": record.funcName,
-        }
-        if record.exc_info:
-            log_record["exc_info"] = self.formatException(record.exc_info)
-        return json.dumps(log_record)
+setup_logging()
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
-# Configure logging
-handler = logging.StreamHandler()
-formatter = JsonFormatter()
-handler.setFormatter(formatter)
-
-# Get the root logger and add the handler
-logger = logging.getLogger()
-logger.setLevel(logging.INFO) # Set desired logging level
-logger.addHandler(handler)
+@app.on_event("startup")
+async def startup_event():
+    logger.info("AI Face Service started")
 
 @app.get("/")
 async def root():
     logger.info("Root endpoint accessed")
+    # Example of an error log
+    try:
+        # Simulate a face recognition failure
+        raise ValueError("Face not recognized")
+    except ValueError as e:
+        logger.error("Face recognition failed", extra={'error': str(e), 'user_id': 'test_user'})
     return {"message": "Hello from AI Face Service"}
