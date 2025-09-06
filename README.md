@@ -56,7 +56,7 @@ Our CI/CD pipeline automates the process of building, testing, and pushing Docke
 
 ### Workflow Overview
 
-The CI/CD pipeline is configured using GitHub Actions and defined in the `.github/workflows/ci-cd.yml` file. It consists of the following stages:
+The CI/CD pipeline is configured using GitHub Actions and defined in the `.github/workflows/ci-cd.yml` file. The pipeline utilizes the latest versions of Docker-related GitHub Actions for improved stability and features. It consists of the following stages:
 
 1.  **Linting**: Checks code for style and potential errors.
 2.  **Unit Tests**: Runs unit tests for each service to ensure functionality.
