@@ -1,2 +1,5 @@
+# ai-face-service/requirements.txt
+fastapi
+uvicorn
 pytest
 pytest-bdd

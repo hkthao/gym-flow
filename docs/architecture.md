@@ -21,10 +21,10 @@ GymFlow là hệ thống quản lý khách hàng và check-in/out tại phòng g
 
 ### 2.1 Microservices
 
-- **Customer Service (ASP.NET Core):** CRUD khách hàng, quản lý membership.
-- **Face Recognition Service (Python/FastAPI):** Nhận diện khuôn mặt, trả về member_id.
-- **Check-in/out Service (ASP.NET Core):** Xử lý check-in/out, ghi attendance.
-- **Notification Service (ASP.NET Core):** Gửi push/email/SMS.
+- **ai-face-service (Python/FastAPI):** Nhận diện khuôn mặt, trả về member_id.
+- **customer-service (ASP.NET Core):** CRUD khách hàng, quản lý membership.
+- **checkin-service (ASP.NET Core):** Xử lý check-in/out, ghi attendance.
+- **auth-service (ASP.NET Core):** Quản lý xác thực và ủy quyền người dùng.
 
 ### 2.2 Thành phần khác
 
