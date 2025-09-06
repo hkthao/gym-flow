@@ -79,7 +79,22 @@ To monitor the progress and view logs of the CI/CD pipeline runs:
 2.  Select the "CI/CD Pipeline" workflow from the list.
 3.  Click on a specific workflow run to view its detailed steps and logs.
 
+### Branch Protection
+
+To ensure the stability of the `main` and `develop` branches, it is crucial to set up branch protection rules. These rules prevent direct pushes and require that all pull requests pass the CI/CD checks before they can be merged.
+
+To configure branch protection:
+
+1.  Go to your repository's **Settings** tab.
+2.  Click on **Branches** in the left sidebar.
+3.  Click **Add rule**.
+4.  In the **Branch name pattern**, enter `main` or `develop`.
+5.  Enable the following options:
+    *   **Require a pull request before merging.**
+    *   **Require status checks to pass before merging.**
+    *   Select the **`lint-python`**, **`test-python`**, **`build-and-push-python`**, **`lint-dotnet`**, **`test-dotnet`** and **`build-and-push-dotnet`** jobs from the list of status checks.
+6.  Click **Create**.
+
 ### Important Notes
 
-*   **Branch Protection**: It is highly recommended to set up branch protection rules for the `main` and `develop` branches in your GitHub repository settings. This will prevent direct pushes and ensure that Pull Requests can only be merged after all CI checks have passed successfully.
 *   **Pull Request Merge**: Pull Requests should only be merged into `main` or `develop` once all associated CI/CD checks have passed.
