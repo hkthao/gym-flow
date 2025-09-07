@@ -2,116 +2,83 @@
 
 Chào bạn, với vai trò là một kỹ sư DevOps, tôi sẽ hướng dẫn bạn cách chạy và tích hợp test coverage cho dự án .NET Core của chúng ta một cách chi tiết, dễ hiểu.
 
-## 1. Cách chạy Test Coverage cục bộ
+## 1. Cách chạy Test Coverage cục bộ (Cách đơn giản)
 
-Để chạy test coverage trên máy cục bộ, chúng ta sẽ sử dụng `coverlet` tích hợp sẵn với `dotnet test`. `coverlet` là một công cụ mã nguồn mở, đa nền tảng giúp thu thập thông tin về độ bao phủ mã.
+Cách tiếp cận này sử dụng `coverlet.msbuild`, cho phép bạn xem ngay kết quả tóm tắt % coverage trên console sau khi chạy test.
 
-### Câu lệnh cơ bản
+### Bước 1: Cài đặt Package
 
-Bạn có thể chạy test coverage cho một dự án test cụ thể (ví dụ: `CustomerService.UnitTests.csproj`) bằng câu lệnh sau:
+Đảm bảo rằng bạn đã thêm package `coverlet.msbuild` vào **tất cả các project test** của bạn.
 
 ```bash
-dotnet test services/customer-service/tests/CustomerService.UnitTests/CustomerService.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutput=./TestResults/coverage.xml /p:CoverletOutputFormat=cobertura
+dotnet add <path-to-test-project.csproj> package coverlet.msbuild
 ```
+
+### Bước 2: Chạy Test và Xem Coverage
+
+Chạy lệnh sau từ thư mục `services/customer-service`:
+
+```bash
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=teamcity
+```
+
+Sau khi test chạy xong, bạn sẽ thấy một bảng tóm tắt % coverage trực tiếp trên console.
 
 ### Giải thích các tham số
 
 *   `/p:CollectCoverage=true`:
-    *   **Ý nghĩa:** Đây là một thuộc tính (property) của MSBuild, được truyền cho `dotnet test`. Nó ra lệnh cho `coverlet` bắt đầu thu thập dữ liệu độ bao phủ mã khi các bài kiểm thử chạy. Nếu không có tham số này, `coverlet` sẽ không hoạt động.
-    *   **Dành cho Junior:** Hãy nghĩ đơn giản là bạn đang bật công tắc "ghi lại xem code nào đã được chạy" khi chạy test.
+    *   **Ý nghĩa:** Thuộc tính MSBuild này sẽ kích hoạt `coverlet` để thu thập dữ liệu coverage.
+    *   **Dành cho Junior:** Bật công tắc "ghi lại xem code nào đã được chạy".
 
-*   `/p:CoverletOutput=./TestResults/coverage.xml`:
-    *   **Ý nghĩa:** Thuộc tính này chỉ định đường dẫn và tên của tệp báo cáo độ bao phủ sẽ được tạo ra. Trong ví dụ này, báo cáo sẽ được lưu vào thư mục `TestResults` với tên `coverage.xml`.
-    *   **Dành cho Junior:** Đây là nơi bạn muốn lưu lại kết quả "ghi chép" của mình. Bạn có thể đặt tên file và thư mục tùy ý.
+*   `/p:CoverletOutputFormat=teamcity`:
+    *   **Ý nghĩa:** Định dạng output để hiển thị một bảng tóm tắt rõ ràng trên console. Nếu bỏ qua, nó sẽ dùng định dạng `json` (khó đọc hơn).
+    *   **Dành cho Junior:** Chọn kiểu "báo cáo nhanh" để xem ngay trên màn hình.
 
-*   `/p:CoverletOutputFormat=cobertura`:
-    *   **Ý nghĩa:** Thuộc tính này xác định định dạng của tệp báo cáo độ bao phủ. `cobertura` là một định dạng XML phổ biến, được nhiều công cụ khác (như `reportgenerator` hoặc các plugin IDE) hỗ trợ để tạo báo cáo trực quan. Các định dạng khác có thể là `json`, `opencover`, `lcov`...
-    *   **Dành cho Junior:** Có nhiều cách để "ghi chép" kết quả. `cobertura` là một kiểu "ghi chép" mà nhiều công cụ khác có thể đọc và biến thành báo cáo đẹp mắt.
+## 2. Cách sinh Report HTML chi tiết (Tùy chọn)
 
-### Hướng dẫn mở file coverage để xem nhanh
+Nếu bạn muốn có một báo cáo HTML chi tiết để xem dòng code nào đã được cover, bạn có thể kết hợp `coverlet` và `reportgenerator`.
 
-Tệp `coverage.xml` (hoặc bất kỳ định dạng nào bạn chọn) là một tệp XML chứa dữ liệu thô về độ bao phủ. Để xem nó một cách trực quan hơn:
+### Bước 1: Chạy Test và Xuất ra file Cobertura
 
-*   **Mở trực tiếp (XML):** Bạn có thể mở tệp `coverage.xml` bằng bất kỳ trình soạn thảo văn bản nào (như VS Code, Notepad++). Tuy nhiên, nó sẽ khó đọc vì là dữ liệu thô.
-*   **Sử dụng Plugin trong IDE:**
-    *   **Visual Studio:** Cài đặt các extension như "Fine Code Coverage" hoặc "Code Coverage for VS Code" (nếu bạn dùng VS Code). Các plugin này có thể đọc tệp `coverage.xml` và hiển thị độ bao phủ trực tiếp trong trình soạn thảo code của bạn (ví dụ: tô màu xanh cho code đã chạy, màu đỏ cho code chưa chạy).
-    *   **JetBrains Rider:** Rider có tính năng code coverage tích hợp sẵn, bạn có thể cấu hình để nó sử dụng `coverlet` và hiển thị kết quả.
-
-## 2. Cách sinh Report đẹp (HTML Report)
-
-Để có một báo cáo độ bao phủ đẹp mắt, dễ đọc và chia sẻ, chúng ta sẽ sử dụng `reportgenerator`.
-
-### Cài đặt `reportgenerator` (Global Tool)
-
-Nếu bạn chưa có, hãy cài đặt `reportgenerator` như một công cụ toàn cục trên máy của mình:
+Sử dụng lệnh sau để vừa hiển thị tóm tắt trên console, vừa tạo ra file `coverage.cobertura.xml` cần thiết cho `reportgenerator`.
 
 ```bash
-dotnet tool install --global reportgenerator
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=\"teamcity,cobertura\"
 ```
-*   **Dành cho Junior:** Đây là một công cụ "phù thủy" giúp biến những "ghi chép" thô (file XML) thành một cuốn báo cáo đẹp đẽ, có hình ảnh, biểu đồ, rất dễ nhìn.
+*   **Lưu ý:** Lệnh này sẽ tạo ra một tệp `coverage.cobertura.xml` trong thư mục của mỗi project test.
 
-### Sinh Report HTML từ file `coverage.xml`
+### Bước 2: Cài đặt `reportgenerator`
 
-Sau khi đã chạy `dotnet test` với `coverlet` và có tệp `coverage.xml`, bạn có thể sinh báo cáo HTML:
+Nếu bạn chưa có, hãy cài đặt `reportgenerator` như một công cụ toàn cục:
 
 ```bash
-reportgenerator -reports:./TestResults/coverage.xml -targetdir:./CoverageReport -reporttypes:Html
+dotnet tool install --global dotnet-reportgenerator-globaltool
 ```
-*   `-reports:./TestResults/coverage.xml`: Chỉ định tệp báo cáo độ bao phủ đầu vào (tệp XML mà `coverlet` đã tạo).
-*   `-targetdir:./CoverageReport`: Chỉ định thư mục mà báo cáo HTML sẽ được tạo ra.
-*   `-reporttypes:Html`: Chỉ định định dạng báo cáo đầu ra là HTML.
 
-### Vị trí mở file HTML để xem coverage trực quan
+### Bước 3: Sinh Report HTML
 
-Sau khi chạy lệnh trên, bạn sẽ tìm thấy báo cáo HTML trong thư mục `CoverageReport` (hoặc tên thư mục bạn đã chỉ định).
+Chạy lệnh sau từ thư mục gốc của repo (`gym-flow`):
 
-*   Mở tệp `index.html` trong thư mục `CoverageReport` bằng trình duyệt web của bạn. Bạn sẽ thấy một dashboard tổng quan về độ bao phủ, và có thể click vào từng file code để xem chi tiết từng dòng code đã được test hay chưa.
+```bash
+reportgenerator "-reports:services/customer-service/tests/**/coverage.cobertura.xml" "-targetdir:coverage-report" -reporttypes:Html
+```
 
-## 3. Cách tích hợp vào GitHub Actions
+Sau đó, mở tệp `index.html` trong thư mục `coverage-report` để xem báo cáo chi tiết.
 
-Để tự động hóa việc chạy test coverage và tạo báo cáo trong quy trình CI/CD, chúng ta sẽ tích hợp các bước này vào GitHub Actions.
+## 3. Tích hợp vào GitHub Actions
 
-### Thêm step `dotnet test` với `coverlet`
+Quy trình CI/CD của chúng ta đã được cập nhật để sử dụng phương pháp `coverlet.msbuild`.
 
-Bạn sẽ thêm một bước vào file `.github/workflows/ci-cd.yml` (hoặc file workflow tương ứng của bạn) để chạy test và thu thập coverage.
+Trong tệp `.github/workflows/ci-cd.yml`, bước `test-dotnet` sẽ chạy lệnh sau cho `customer-service`:
 
 ```yaml
-# ... (các bước trước đó như checkout, setup .NET) ...
-
-- name: Run Tests and Collect Coverage
-  run: dotnet test services/customer-service/CustomerService.sln /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=${{ github.workspace }}/coverage.xml
-  # Lưu ý: Thay thế services/customer-service/CustomerService.sln bằng đường dẫn solution hoặc project test của bạn
-  # ${{ github.workspace }} là biến môi trường trỏ đến thư mục gốc của repo trên runner
+- name: Test
+  run: |
+    if [ "${{ matrix.service }}" == "customer-service" ]; then
+      dotnet test services/customer-service/CustomerService.sln --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=\"teamcity,cobertura\"
+    else
+      dotnet test services/${{ matrix.service }}/${{ matrix.service }}.csproj --no-restore
+    fi
 ```
-*   **Dành cho Junior:** Bước này giống như việc bạn chạy test trên máy mình, nhưng giờ là GitHub làm hộ. Kết quả "ghi chép" sẽ được lưu vào file `coverage.xml` ở thư mục gốc của dự án trên GitHub.
 
-### Thêm step `reportgenerator` để tạo HTML report artifact
-
-Sau khi có file `coverage.xml`, chúng ta sẽ dùng `reportgenerator` để tạo báo cáo HTML.
-
-```yaml
-# ... (sau bước Run Tests and Collect Coverage) ...
-
-- name: Generate Coverage Report
-  uses: danielpalme/reportgenerator-github-action@v5.2.0 # Hoặc chạy lệnh dotnet tool run reportgenerator
-  with:
-    reports: '${{ github.workspace }}/coverage.xml'
-    targetdirectory: '${{ github.workspace }}/CoverageReport'
-    reporttypes: 'Html'
-```
-*   **Dành cho Junior:** Bước này là để GitHub tạo ra cuốn báo cáo đẹp đẽ từ file `coverage.xml` mà nó vừa tạo ra. Báo cáo này sẽ nằm trong thư mục `CoverageReport`.
-
-### Upload Report Artifact vào GitHub Actions
-
-Để team có thể tải về và xem báo cáo HTML, chúng ta sẽ upload thư mục `CoverageReport` như một artifact của workflow.
-
-```yaml
-# ... (sau bước Generate Coverage Report) ...
-
-- name: Upload Coverage Report
-  uses: actions/upload-artifact@v3
-  with:
-    name: Code-Coverage-Report
-    path: ${{ github.workspace }}/CoverageReport
-```
-*   **Dành cho Junior:** Bước này giống như việc bạn đóng gói cuốn báo cáo đẹp đẽ đó vào một cái hộp và gửi lên GitHub. Sau khi CI chạy xong, bạn có thể vào phần "Actions" trên GitHub, tìm đến lần chạy CI đó, và tải cái hộp này về để xem báo cáo.
+Điều này đảm bảo rằng mỗi khi code được push, chúng ta sẽ thấy được tóm tắt coverage trong logs của GitHub Actions, đồng thời file `coverage.cobertura.xml` cũng được tạo ra để có thể sử dụng cho các bước sau này (nếu cần).

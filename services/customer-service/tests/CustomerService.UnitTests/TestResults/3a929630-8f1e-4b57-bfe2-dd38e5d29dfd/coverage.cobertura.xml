@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<coverage line-rate="0.5179" branch-rate="0.5" version="1.9" timestamp="1757222253" lines-covered="101" lines-valid="195" branches-covered="6" branches-valid="12">
+  <sources>
+    <source>C:\Users\admin\Documents\Projects\gym-flow\services\customer-service\src\</source>
+  </sources>
+  <packages>
+    <package name="CustomerService.Application" line-rate="0.7881999999999999" branch-rate="0.6" complexity="26">
+      <classes>
+        <class name="GymFlow.CustomerService.Application.Validators.CustomerValidator" filename="CustomerService.Application\Validators\CustomerValidator.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+                <line number="13" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+            <line number="13" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(GymFlow.CustomerService.Domain.Interfaces.ICustomerRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="18" hits="6" branch="False" />
+                <line number="19" hits="6" branch="False" />
+                <line number="20" hits="6" branch="False" />
+                <line number="21" hits="6" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="18" hits="6" branch="False" />
+            <line number="19" hits="6" branch="False" />
+            <line number="20" hits="6" branch="False" />
+            <line number="21" hits="6" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;&gt;c" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="&lt;SearchCustomersAsync&gt;b__7_0" signature="(GymFlow.CustomerService.Domain.Entities.Customer)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="96" hits="6" branch="False" />
+                <line number="97" hits="6" branch="False" />
+                <line number="98" hits="6" branch="False" />
+                <line number="99" hits="6" branch="False" />
+                <line number="100" hits="6" branch="False" />
+                <line number="101" hits="6" branch="False" />
+                <line number="102" hits="6" branch="False" />
+                <line number="103" hits="6" branch="False" />
+                <line number="104" hits="6" branch="False" />
+                <line number="105" hits="6" branch="False" />
+                <line number="106" hits="6" branch="False" />
+                <line number="107" hits="6" branch="False" />
+                <line number="108" hits="6" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="96" hits="6" branch="False" />
+            <line number="97" hits="6" branch="False" />
+            <line number="98" hits="6" branch="False" />
+            <line number="99" hits="6" branch="False" />
+            <line number="100" hits="6" branch="False" />
+            <line number="101" hits="6" branch="False" />
+            <line number="102" hits="6" branch="False" />
+            <line number="103" hits="6" branch="False" />
+            <line number="104" hits="6" branch="False" />
+            <line number="105" hits="6" branch="False" />
+            <line number="106" hits="6" branch="False" />
+            <line number="107" hits="6" branch="False" />
+            <line number="108" hits="6" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;CreateCustomerAsync&gt;d__4" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="0.7646999999999999" branch-rate="0.6666" complexity="6">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.7646999999999999" branch-rate="0.6666" complexity="6">
+              <lines>
+                <line number="34" hits="2" branch="False" />
+                <line number="36" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="70" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="37" hits="0" branch="False" />
+                <line number="38" hits="0" branch="False" />
+                <line number="40" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="221" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="41" hits="1" branch="False" />
+                <line number="42" hits="1" branch="False" />
+                <line number="44" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="381" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="45" hits="0" branch="False" />
+                <line number="46" hits="0" branch="False" />
+                <line number="49" hits="1" branch="False" />
+                <line number="50" hits="1" branch="False" />
+                <line number="51" hits="1" branch="False" />
+                <line number="53" hits="1" branch="False" />
+                <line number="54" hits="1" branch="False" />
+                <line number="55" hits="1" branch="False" />
+                <line number="56" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="34" hits="2" branch="False" />
+            <line number="36" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="70" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="37" hits="0" branch="False" />
+            <line number="38" hits="0" branch="False" />
+            <line number="40" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="221" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="41" hits="1" branch="False" />
+            <line number="42" hits="1" branch="False" />
+            <line number="44" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="381" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="45" hits="0" branch="False" />
+            <line number="46" hits="0" branch="False" />
+            <line number="49" hits="1" branch="False" />
+            <line number="50" hits="1" branch="False" />
+            <line number="51" hits="1" branch="False" />
+            <line number="53" hits="1" branch="False" />
+            <line number="54" hits="1" branch="False" />
+            <line number="55" hits="1" branch="False" />
+            <line number="56" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;DeleteCustomerAsync&gt;d__6" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="0.75" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.75" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="81" hits="1" branch="False" />
+                <line number="82" hits="1" branch="False" />
+                <line number="83" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="173" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="84" hits="0" branch="False" />
+                <line number="85" hits="0" branch="False" />
+                <line number="88" hits="1" branch="False" />
+                <line number="89" hits="1" branch="False" />
+                <line number="90" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="81" hits="1" branch="False" />
+            <line number="82" hits="1" branch="False" />
+            <line number="83" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="173" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="84" hits="0" branch="False" />
+            <line number="85" hits="0" branch="False" />
+            <line number="88" hits="1" branch="False" />
+            <line number="89" hits="1" branch="False" />
+            <line number="90" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;GetAllCustomersAsync&gt;d__3" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;GetCustomerByIdAsync&gt;d__2" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="1" branch="False" />
+                <line number="25" hits="1" branch="False" />
+                <line number="26" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="1" branch="False" />
+            <line number="25" hits="1" branch="False" />
+            <line number="26" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;SearchCustomersAsync&gt;d__7" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="93" hits="1" branch="False" />
+                <line number="94" hits="1" branch="False" />
+                <line number="110" hits="1" branch="False" />
+                <line number="111" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="93" hits="1" branch="False" />
+            <line number="94" hits="1" branch="False" />
+            <line number="110" hits="1" branch="False" />
+            <line number="111" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.Services.CustomerService/&lt;UpdateCustomerAsync&gt;d__5" filename="CustomerService.Application\Services\CustomerService.cs" line-rate="0.875" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.875" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="59" hits="1" branch="False" />
+                <line number="60" hits="1" branch="False" />
+                <line number="61" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="178" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="62" hits="0" branch="False" />
+                <line number="63" hits="0" branch="False" />
+                <line number="67" hits="1" branch="False" />
+                <line number="68" hits="1" branch="False" />
+                <line number="69" hits="1" branch="False" />
+                <line number="70" hits="1" branch="False" />
+                <line number="71" hits="1" branch="False" />
+                <line number="72" hits="1" branch="False" />
+                <line number="73" hits="1" branch="False" />
+                <line number="74" hits="1" branch="False" />
+                <line number="76" hits="1" branch="False" />
+                <line number="77" hits="1" branch="False" />
+                <line number="78" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="59" hits="1" branch="False" />
+            <line number="60" hits="1" branch="False" />
+            <line number="61" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="178" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="62" hits="0" branch="False" />
+            <line number="63" hits="0" branch="False" />
+            <line number="67" hits="1" branch="False" />
+            <line number="68" hits="1" branch="False" />
+            <line number="69" hits="1" branch="False" />
+            <line number="70" hits="1" branch="False" />
+            <line number="71" hits="1" branch="False" />
+            <line number="72" hits="1" branch="False" />
+            <line number="73" hits="1" branch="False" />
+            <line number="74" hits="1" branch="False" />
+            <line number="76" hits="1" branch="False" />
+            <line number="77" hits="1" branch="False" />
+            <line number="78" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Application.DTOs.CustomerDto" filename="CustomerService.Application\DTOs\CustomerDto.cs" line-rate="1" branch-rate="1" complexity="10">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_FullName" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Phone" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Birthday" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Gender" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Address" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_MembershipStatus" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_CreatedAt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_UpdatedAt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="8" hits="5" branch="False" />
+            <line number="9" hits="5" branch="False" />
+            <line number="10" hits="5" branch="False" />
+            <line number="11" hits="5" branch="False" />
+            <line number="12" hits="5" branch="False" />
+            <line number="13" hits="5" branch="False" />
+            <line number="14" hits="5" branch="False" />
+            <line number="15" hits="5" branch="False" />
+            <line number="16" hits="5" branch="False" />
+            <line number="17" hits="5" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="CustomerService.Domain" line-rate="0.9714" branch-rate="1" complexity="19">
+      <classes>
+        <class name="GymFlow.CustomerService.Domain.Entities.Customer" filename="CustomerService.Domain\Entities\Customer.cs" line-rate="1" branch-rate="1" complexity="11">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="21" branch="False" />
+              </lines>
+            </method>
+            <method name="get_FullName" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="32" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Phone" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="28" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="25" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Birthday" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="7" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Gender" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="7" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Address" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="18" branch="False" />
+              </lines>
+            </method>
+            <method name="get_MembershipStatus" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="26" hits="7" branch="False" />
+              </lines>
+            </method>
+            <method name="get_CreatedAt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="27" hits="6" branch="False" />
+              </lines>
+            </method>
+            <method name="get_UpdatedAt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="28" hits="7" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="11" branch="False" />
+                <line number="17" hits="11" branch="False" />
+                <line number="18" hits="11" branch="False" />
+                <line number="19" hits="11" branch="False" />
+                <line number="20" hits="11" branch="False" />
+                <line number="21" hits="11" branch="False" />
+                <line number="22" hits="11" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="21" branch="False" />
+            <line number="12" hits="32" branch="False" />
+            <line number="13" hits="28" branch="False" />
+            <line number="14" hits="25" branch="False" />
+            <line number="23" hits="7" branch="False" />
+            <line number="24" hits="7" branch="False" />
+            <line number="25" hits="18" branch="False" />
+            <line number="26" hits="7" branch="False" />
+            <line number="27" hits="6" branch="False" />
+            <line number="28" hits="7" branch="False" />
+            <line number="16" hits="11" branch="False" />
+            <line number="17" hits="11" branch="False" />
+            <line number="18" hits="11" branch="False" />
+            <line number="19" hits="11" branch="False" />
+            <line number="20" hits="11" branch="False" />
+            <line number="21" hits="11" branch="False" />
+            <line number="22" hits="11" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Domain.Common.PagedResult`1" filename="CustomerService.Domain\Common\PagedResult.cs" line-rate="0.9285" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Data" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Pagination" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(System.Collections.Generic.IEnumerable`1&lt;T&gt;,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="1" branch="False" />
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+                <line number="17" hits="1" branch="False" />
+                <line number="18" hits="1" branch="False" />
+                <line number="19" hits="1" branch="False" />
+                <line number="20" hits="1" branch="False" />
+                <line number="21" hits="1" branch="False" />
+                <line number="22" hits="1" branch="False" />
+                <line number="23" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="8" hits="2" branch="False" />
+            <line number="9" hits="5" branch="False" />
+            <line number="11" hits="0" branch="False" />
+            <line number="13" hits="1" branch="False" />
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+            <line number="17" hits="1" branch="False" />
+            <line number="18" hits="1" branch="False" />
+            <line number="19" hits="1" branch="False" />
+            <line number="20" hits="1" branch="False" />
+            <line number="21" hits="1" branch="False" />
+            <line number="22" hits="1" branch="False" />
+            <line number="23" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Domain.Common.PaginationMetadata" filename="CustomerService.Domain\Common\PagedResult.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_PageNumber" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="28" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_PageSize" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="29" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_TotalRecords" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="30" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_TotalPages" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="31" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="28" hits="2" branch="False" />
+            <line number="29" hits="2" branch="False" />
+            <line number="30" hits="2" branch="False" />
+            <line number="31" hits="2" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="CustomerService.Infrastructure" line-rate="0" branch-rate="0" complexity="14">
+      <classes>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="Update" signature="(GymFlow.CustomerService.Domain.Entities.Customer)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="36" hits="0" branch="False" />
+                <line number="37" hits="0" branch="False" />
+                <line number="38" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="Delete" signature="(GymFlow.CustomerService.Domain.Entities.Customer)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="41" hits="0" branch="False" />
+                <line number="42" hits="0" branch="False" />
+                <line number="43" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(GymFlow.CustomerService.Infrastructure.Persistence.ApplicationDbContext)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+                <line number="17" hits="0" branch="False" />
+                <line number="18" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="36" hits="0" branch="False" />
+            <line number="37" hits="0" branch="False" />
+            <line number="38" hits="0" branch="False" />
+            <line number="41" hits="0" branch="False" />
+            <line number="42" hits="0" branch="False" />
+            <line number="43" hits="0" branch="False" />
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="False" />
+            <line number="18" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;AddAsync&gt;d__4" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="31" hits="0" branch="False" />
+                <line number="32" hits="0" branch="False" />
+                <line number="33" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="31" hits="0" branch="False" />
+            <line number="32" hits="0" branch="False" />
+            <line number="33" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;GetAllAsync&gt;d__3" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="26" hits="0" branch="False" />
+                <line number="27" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="26" hits="0" branch="False" />
+            <line number="27" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;GetByEmailAsync&gt;d__9" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="56" hits="0" branch="False" />
+                <line number="57" hits="0" branch="False" />
+                <line number="58" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="56" hits="0" branch="False" />
+            <line number="57" hits="0" branch="False" />
+            <line number="58" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;GetByIdAsync&gt;d__2" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;GetByPhoneAsync&gt;d__8" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="51" hits="0" branch="False" />
+                <line number="52" hits="0" branch="False" />
+                <line number="53" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="51" hits="0" branch="False" />
+            <line number="52" hits="0" branch="False" />
+            <line number="53" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;SaveChangesAsync&gt;d__7" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="46" hits="0" branch="False" />
+                <line number="47" hits="0" branch="False" />
+                <line number="48" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="46" hits="0" branch="False" />
+            <line number="47" hits="0" branch="False" />
+            <line number="48" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository/&lt;SearchCustomersAsync&gt;d__10" filename="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="61" hits="0" branch="False" />
+                <line number="62" hits="0" branch="False" />
+                <line number="64" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="105" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="65" hits="0" branch="False" />
+                <line number="66" hits="0" branch="False" />
+                <line number="67" hits="0" branch="False" />
+                <line number="68" hits="0" branch="False" />
+                <line number="69" hits="0" branch="False" />
+                <line number="71" hits="0" branch="False" />
+                <line number="73" hits="0" branch="False" />
+                <line number="74" hits="0" branch="False" />
+                <line number="75" hits="0" branch="False" />
+                <line number="77" hits="0" branch="False" />
+                <line number="78" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="61" hits="0" branch="False" />
+            <line number="62" hits="0" branch="False" />
+            <line number="64" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="105" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="65" hits="0" branch="False" />
+            <line number="66" hits="0" branch="False" />
+            <line number="67" hits="0" branch="False" />
+            <line number="68" hits="0" branch="False" />
+            <line number="69" hits="0" branch="False" />
+            <line number="71" hits="0" branch="False" />
+            <line number="73" hits="0" branch="False" />
+            <line number="74" hits="0" branch="False" />
+            <line number="75" hits="0" branch="False" />
+            <line number="77" hits="0" branch="False" />
+            <line number="78" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="GymFlow.CustomerService.Infrastructure.Persistence.ApplicationDbContext" filename="CustomerService.Infrastructure\Persistence\ApplicationDbContext.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Customers" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="OnModelCreating" signature="(Microsoft.EntityFrameworkCore.ModelBuilder)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+                <line number="19" hits="0" branch="False" />
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+                <line number="24" hits="0" branch="False" />
+                <line number="25" hits="0" branch="False" />
+                <line number="26" hits="0" branch="False" />
+                <line number="27" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+                <line number="32" hits="0" branch="False" />
+                <line number="33" hits="0" branch="False" />
+                <line number="34" hits="0" branch="False" />
+                <line number="35" hits="0" branch="False" />
+                <line number="36" hits="0" branch="False" />
+                <line number="37" hits="0" branch="False" />
+                <line number="38" hits="0" branch="False" />
+                <line number="39" hits="0" branch="False" />
+                <line number="40" hits="0" branch="False" />
+                <line number="41" hits="0" branch="False" />
+                <line number="42" hits="0" branch="False" />
+                <line number="45" hits="0" branch="False" />
+                <line number="46" hits="0" branch="False" />
+                <line number="47" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.DbContextOptions`1&lt;GymFlow.CustomerService.Infrastructure.Persistence.ApplicationDbContext&gt;)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="12" hits="0" branch="False" />
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="19" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+            <line number="24" hits="0" branch="False" />
+            <line number="25" hits="0" branch="False" />
+            <line number="26" hits="0" branch="False" />
+            <line number="27" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+            <line number="32" hits="0" branch="False" />
+            <line number="33" hits="0" branch="False" />
+            <line number="34" hits="0" branch="False" />
+            <line number="35" hits="0" branch="False" />
+            <line number="36" hits="0" branch="False" />
+            <line number="37" hits="0" branch="False" />
+            <line number="38" hits="0" branch="False" />
+            <line number="39" hits="0" branch="False" />
+            <line number="40" hits="0" branch="False" />
+            <line number="41" hits="0" branch="False" />
+            <line number="42" hits="0" branch="False" />
+            <line number="45" hits="0" branch="False" />
+            <line number="46" hits="0" branch="False" />
+            <line number="47" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
