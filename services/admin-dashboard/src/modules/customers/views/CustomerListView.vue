@@ -17,16 +17,17 @@
 import { ref } from 'vue'
 import CustomerTable from '../components/CustomerTable.vue'
 import CustomerForm from '../components/CustomerForm.vue'
+import type { Customer } from '../types'
 
 const formVisible = ref(false)
-const selectedCustomer = ref({})
+const selectedCustomer = ref<Partial<Customer>>({})
 
 const handleAdd = () => {
   selectedCustomer.value = {}
   formVisible.value = true
 }
 
-const handleEdit = (customer: any) => {
+const handleEdit = (customer: Customer) => {
   selectedCustomer.value = customer
   formVisible.value = true
 }

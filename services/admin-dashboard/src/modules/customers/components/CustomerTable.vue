@@ -40,6 +40,7 @@
 import { ref, onMounted } from 'vue'
 import { useCustomerStore } from '../stores/customerStore'
 import { storeToRefs } from 'pinia'
+import type { Customer } from '../types'
 
 const emit = defineEmits(['edit'])
 
@@ -58,7 +59,7 @@ const handlePageChange = (page: number) => {
   fetchCustomers()
 }
 
-const handleEdit = (customer: any) => {
+const handleEdit = (customer: Customer) => {
   emit('edit', customer)
 }
 

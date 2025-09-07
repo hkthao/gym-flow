@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { Customer } from '../types'
 
 // Mock data for now
-const mockCustomers = [
+const mockCustomers: Customer[] = [
   {
     id: 1,
     fullName: 'John Doe',
@@ -22,7 +23,7 @@ const mockCustomers = [
 ]
 
 export const useCustomerStore = defineStore('customer', () => {
-  const customers = ref<any[]>([])
+  const customers = ref<Customer[]>([])
   const total = ref(0)
   const currentPage = ref(1)
   const pageSize = ref(10)

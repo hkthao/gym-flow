@@ -31,7 +31,6 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useCustomerStore } from '../stores/customerStore'
 
 const props = defineProps({
   visible: {
@@ -46,7 +45,6 @@ const props = defineProps({
 
 const emit = defineEmits(['update:visible'])
 
-const customerStore = useCustomerStore()
 const dialogVisible = ref(props.visible)
 const form = ref({ ...props.customer })
 

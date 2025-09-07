@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerForm from '../components/CustomerForm.vue'
-import { nextTick } from 'vue'
 
 describe('CustomerForm.vue', () => {
   let wrapper
