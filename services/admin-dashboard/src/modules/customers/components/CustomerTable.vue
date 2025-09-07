@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="mb-4">
+    <v-row class="mb-4" align="center">
       <v-col cols="12" md="4">
         <v-text-field
           v-model="search"
@@ -11,6 +11,16 @@
           @click:append-inner="fetchCustomers"
           hide-details
         ></v-text-field>
+      </v-col>
+      <v-col cols="12" md="3">
+        <v-select
+          v-model="statusFilter"
+          :items="['All', 'Active', 'Inactive']"
+          label="Filter by status"
+          density="compact"
+          variant="outlined"
+          hide-details
+        ></v-select>
       </v-col>
     </v-row>
 
@@ -45,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useCustomerStore } from '../stores/customerStore'
 import { storeToRefs } from 'pinia'
 import type { Customer } from '../types'
@@ -60,10 +70,9 @@ interface DataTableOptions {
 const emit = defineEmits(['edit'])
 
 const customerStore = useCustomerStore()
-const { customers, total, currentPage, pageSize, loading } = storeToRefs(customerStore)
+const { customers, total, currentPage, pageSize, loading, statusFilter, search } = storeToRefs(customerStore)
 const { fetchCustomers, deleteCustomer } = customerStore
 
-const search = ref('')
 const deleteDialog = ref(false)
 const itemToDelete = ref<Customer | null>(null)
 
@@ -76,6 +85,11 @@ const headers = [
   { title: 'Actions', key: 'actions', sortable: false }
 ]
 
+// Watch for filter changes and refetch data
+watch(statusFilter, () => {
+  fetchCustomers()
+})
+
 onMounted(() => {
   // fetchCustomers will be called by handleOptionsUpdate on mount
 })
@@ -83,7 +97,6 @@ onMounted(() => {
 const handleOptionsUpdate = (options: DataTableOptions) => {
   currentPage.value = options.page
   pageSize.value = options.itemsPerPage
-  // You might need to handle sorting here as well
   fetchCustomers()
 }
 

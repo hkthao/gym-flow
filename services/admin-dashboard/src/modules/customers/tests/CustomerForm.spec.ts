@@ -1,10 +1,18 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { createTestingPinia } from '@pinia/testing'
 import CustomerForm from '../components/CustomerForm.vue'
 
 describe('CustomerForm.vue', () => {
   const mountComponent = (props = {}) => {
     return mount(CustomerForm, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn
+          })
+        ]
+      },
       props: {
         visible: true,
         customer: null,
@@ -16,7 +24,6 @@ describe('CustomerForm.vue', () => {
   it('renders form with empty data for a new customer', () => {
     const wrapper = mountComponent({ customer: {} })
     const textField = wrapper.findComponent({ name: 'VTextField' })
-    // For a new customer, the modelValue should be undefined or empty
     expect(textField.props('modelValue')).toBeUndefined()
   })
 
@@ -29,7 +36,6 @@ describe('CustomerForm.vue', () => {
 
   it('emits update:visible when cancel button is clicked', async () => {
     const wrapper = mountComponent()
-    // Find the cancel button and click it
     const buttons = wrapper.findAllComponents({ name: 'VBtn' })
     const cancelButton = buttons.find(btn => btn.text() === 'Cancel')
     await cancelButton.trigger('click')

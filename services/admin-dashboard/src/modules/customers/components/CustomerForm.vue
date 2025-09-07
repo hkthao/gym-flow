@@ -45,6 +45,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import type { Customer } from '../types'
+import { useCustomerStore } from '../stores/customerStore'
 
 const props = defineProps<{
   visible: boolean
@@ -52,10 +53,10 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits(['update:visible'])
+const store = useCustomerStore()
 
 const form = ref<Partial<Customer>>({})
 
-// Watch for the customer prop to change and update the form
 watch(
   () => props.customer,
   (newVal) => {
@@ -72,9 +73,12 @@ const closeDialog = () => {
   emit('update:visible', false)
 }
 
-const handleSubmit = () => {
-  // In a real app, you would call an API to save the customer
-  console.log('Form submitted:', form.value)
+const handleSubmit = async () => {
+  if (form.value.id) {
+    await store.updateCustomer(form.value as Customer)
+  } else {
+    await store.addCustomer(form.value as Omit<Customer, 'id'>)
+  }
   closeDialog()
 }
 </script>

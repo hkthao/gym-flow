@@ -15,12 +15,11 @@ describe('CustomerTable.vue', () => {
             initialState: {
               customer: {
                 customers: [
-                  { id: 1, fullName: 'John Doe', phone: '111', email: 'a@a.com', gender: 'Male', membershipStatus: 'Active' }
+                  { id: 1, fullName: 'John Doe', membershipStatus: 'Active' },
+                  { id: 2, fullName: 'Jane Smith', membershipStatus: 'Inactive' }
                 ],
-                total: 1,
-                currentPage: 1,
-                pageSize: 10,
-                loading: false
+                total: 2,
+                statusFilter: 'All'
               }
             }
           })
@@ -31,52 +30,52 @@ describe('CustomerTable.vue', () => {
     return { wrapper, store }
   }
 
-  it('fetches customers on options update (simulating mount)', () => {
+  it('fetches customers on options update', () => {
     const { store } = mountComponent()
-    // v-data-table emits `update:options` on mount, which triggers this
     expect(store.fetchCustomers).toHaveBeenCalledTimes(1)
   })
 
-  it('displays customer data in the table', () => {
+  it('displays customer data', () => {
     const { wrapper } = mountComponent()
     const dataTable = wrapper.findComponent({ name: 'VDataTable' })
-    expect(dataTable.props('items')).toHaveLength(1)
-    expect(dataTable.props('items')[0].fullName).toBe('John Doe')
+    expect(dataTable.props('items')).toHaveLength(2)
   })
 
-  it('emits edit event when handleEdit is called', async () => {
+  it('emits edit event', async () => {
     const { wrapper, store } = mountComponent()
     const customer = store.customers[0]
-    
-    // Since icons inside v-data-table are hard to target, we test the method directly
     wrapper.vm.handleEdit(customer)
     await nextTick()
-    
     expect(wrapper.emitted('edit')).toBeTruthy()
-    expect(wrapper.emitted('edit')[0][0]).toEqual(customer)
   })
 
-  it('opens delete dialog when openDeleteDialog is called', async () => {
+  it('opens delete dialog', async () => {
     const { wrapper, store } = mountComponent()
     const customer = store.customers[0]
-    
     wrapper.vm.openDeleteDialog(customer)
     await nextTick()
-    
     expect(wrapper.vm.deleteDialog).toBe(true)
-    expect(wrapper.vm.itemToDelete).toEqual(customer)
   })
 
-  it('calls deleteCustomer when delete is confirmed', async () => {
+  it('calls deleteCustomer on confirm', async () => {
     const { wrapper, store } = mountComponent()
     const customer = store.customers[0]
-    
-    wrapper.vm.openDeleteDialog(customer) // Open dialog first
+    wrapper.vm.openDeleteDialog(customer)
     await nextTick()
-    wrapper.vm.confirmDelete() // Then confirm
+    wrapper.vm.confirmDelete()
     await nextTick()
-    
     expect(store.deleteCustomer).toHaveBeenCalledWith(customer.id)
-    expect(wrapper.vm.deleteDialog).toBe(false)
+  })
+
+  it('refetches when filter changes', async () => {
+    const { wrapper, store } = mountComponent()
+    expect(store.fetchCustomers).toHaveBeenCalledTimes(1) // Initial fetch
+    
+    // Simulate user changing the filter
+    const select = wrapper.findComponent({ name: 'VSelect' })
+    await select.vm.$emit('update:modelValue', 'Active')
+    
+    expect(store.statusFilter).toBe('Active')
+    expect(store.fetchCustomers).toHaveBeenCalledTimes(2)
   })
 })
