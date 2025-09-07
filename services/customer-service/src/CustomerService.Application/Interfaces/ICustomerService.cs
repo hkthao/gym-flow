@@ -14,6 +14,6 @@ namespace GymFlow.CustomerService.Application.Interfaces
         Task<Customer> CreateCustomerAsync(Customer customer);
         Task UpdateCustomerAsync(Customer customer);
         Task DeleteCustomerAsync(Guid id);
-        Task<PagedResult<CustomerDto>> SearchCustomersAsync(string? keyword, int pageNumber, int pageSize);
+        Task<PagedResult<CustomerDto>> SearchCustomersAsync(string? keyword, string? status, int pageNumber, int pageSize);
     }
 }
