@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerListView from '../views/CustomerListView.vue'
 import CustomerTable from '../components/CustomerTable.vue'
-import CustomerForm from '../components/CustomerForm.vue'
 
 describe('CustomerListView.vue', () => {
   const mountComponent = () => {

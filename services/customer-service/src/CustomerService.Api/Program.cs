@@ -9,6 +9,19 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Define CORS policy
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:8081", "http://localhost:5173")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                      });
+});
+
 // Add services to the container.
 builder.Services.AddControllers()
     .AddNewtonsoftJson(); // Add NewtonsoftJson for compatibility with ReadAsAsync
@@ -25,12 +38,29 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<GymFlow.CustomerService.Domain.Interfaces.ICustomerRepository, CustomerRepository>();
 
 // Register Services
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ICustomerService, GymFlow.CustomerService.Application.Services.CustomerService>();
 
 // Add FluentValidation
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
+
+// Apply EF Core Migrations on startup
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while migrating the database.");
+    }
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -39,7 +69,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
+
+// Use CORS policy
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

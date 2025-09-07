@@ -57,3 +57,4 @@ commit_message.txt
 
 # Untrack .dll files
 *.dll
+.env

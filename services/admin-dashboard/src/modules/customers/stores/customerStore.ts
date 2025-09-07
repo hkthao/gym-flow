@@ -3,7 +3,8 @@ import { ref } from 'vue'
 import type { Customer } from '../types'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5001/api/customers'
+// The API is always accessed from the browser, so it must use the host's localhost and exposed port.
+const API_URL = 'http://localhost:5001/api/customers';
 
 export const useCustomerStore = defineStore('customer', () => {
   const customers = ref<Customer[]>([])
@@ -28,8 +29,8 @@ export const useCustomerStore = defineStore('customer', () => {
       }
 
       const response = await axios.get(API_URL, { params })
-      customers.value = response.data.customers
-      total.value = response.data.total
+      customers.value = response.data.data
+      total.value = response.data.pagination.totalRecords
     } catch (error) {
       console.error('Failed to fetch customers:', error)
       // Handle error appropriately in a real app

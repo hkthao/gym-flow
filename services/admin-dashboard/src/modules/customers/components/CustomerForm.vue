@@ -52,7 +52,7 @@ const props = defineProps<{
   customer: Partial<Customer> | null
 }>()
 
-const emit = defineEmits(['update:visible'])
+const emit = defineEmits(['update:visible', 'submitted'])
 const store = useCustomerStore()
 
 const form = ref<Partial<Customer>>({})
@@ -79,6 +79,7 @@ const handleSubmit = async () => {
   } else {
     await store.addCustomer(form.value as Omit<Customer, 'id'>)
   }
+  emit('submitted')
   closeDialog()
 }
 </script>

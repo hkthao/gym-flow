@@ -45,6 +45,7 @@
       :visible="formVisible"
       :customer="selectedCustomer"
       @update:visible="formVisible = $event"
+      @submitted="handleFormSubmitted"
     />
   </div>
 </template>
@@ -55,8 +56,11 @@ import CustomerTable from '../components/CustomerTable.vue'
 import CustomerForm from '../components/CustomerForm.vue'
 import type { Customer } from '../types'
 
+import { useCustomerStore } from '../stores/customerStore'
+
 const formVisible = ref(false)
 const selectedCustomer = ref<Partial<Customer> | null>(null)
+const store = useCustomerStore()
 
 const handleAdd = () => {
   selectedCustomer.value = {}
@@ -66,5 +70,9 @@ const handleAdd = () => {
 const handleEdit = (customer: Customer) => {
   selectedCustomer.value = { ...customer }
   formVisible.value = true
+}
+
+const handleFormSubmitted = () => {
+  store.fetchCustomers()
 }
 </script>

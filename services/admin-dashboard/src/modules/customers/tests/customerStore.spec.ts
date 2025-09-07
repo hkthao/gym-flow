@@ -13,13 +13,18 @@ describe('Customer Store', () => {
 
   it('fetches customers via API', async () => {
     const store = useCustomerStore()
-    const mockData = { data: { customers: [{ id: 1, fullName: 'Test' }], total: 1 } }
+    const mockData = {
+      data: {
+        data: [{ id: 1, fullName: 'Test' }],
+        pagination: { totalRecords: 1 }
+      }
+    }
     vi.mocked(axios.get).mockResolvedValue(mockData)
 
     await store.fetchCustomers()
 
     expect(axios.get).toHaveBeenCalledWith('http://localhost:5001/api/customers', expect.any(Object))
-    expect(store.customers).toEqual(mockData.data.customers)
+    expect(store.customers).toEqual(mockData.data.data)
     expect(store.total).toBe(1)
   })
 
@@ -28,7 +33,7 @@ describe('Customer Store', () => {
     // Since fetchCustomers is part of the action, we can't spy on it directly in this context.
     // Instead, we verify the side effect: the GET call for refetching.
     vi.mocked(axios.delete).mockResolvedValue({})
-    vi.mocked(axios.get).mockResolvedValue({ data: { customers: [], total: 0 } }) // Mock the refetch call
+    vi.mocked(axios.get).mockResolvedValue({ data: { data: [], pagination: { totalRecords: 0 } } }) // Mock the refetch call
 
     await store.deleteCustomer(1)
 
@@ -40,7 +45,7 @@ describe('Customer Store', () => {
     const store = useCustomerStore()
     const newCustomer = { fullName: 'New Guy' }
     vi.mocked(axios.post).mockResolvedValue({})
-    vi.mocked(axios.get).mockResolvedValue({ data: { customers: [], total: 0 } })
+    vi.mocked(axios.get).mockResolvedValue({ data: { data: [], pagination: { totalRecords: 0 } } })
 
     await store.addCustomer(newCustomer)
 
@@ -52,7 +57,7 @@ describe('Customer Store', () => {
     const store = useCustomerStore()
     const customer = { id: 1, fullName: 'Updated Guy' }
     vi.mocked(axios.put).mockResolvedValue({})
-    vi.mocked(axios.get).mockResolvedValue({ data: { customers: [], total: 0 } })
+    vi.mocked(axios.get).mockResolvedValue({ data: { data: [], pagination: { totalRecords: 0 } } })
 
     await store.updateCustomer(customer)
 

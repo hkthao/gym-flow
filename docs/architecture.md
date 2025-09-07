@@ -148,7 +148,7 @@ graph TD;
 - **TLS:** Toàn bộ giao tiếp HTTPS.
 - **RBAC:** Admin/staff/member phân quyền.
 - **Dữ liệu khuôn mặt:** Mã hóa khi lưu trữ, tuân thủ chính sách privacy.
-- **Secrets Management:** Vault / K8s secrets.
+- **Secrets Management:** Vault / K8s secrets. For local development, environment variables are managed via a `.env` file.
 
 ---
 
