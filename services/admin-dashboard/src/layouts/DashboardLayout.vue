@@ -1,72 +1,73 @@
 <template>
-  <div class="flex h-screen bg-gray">
-    <!-- Sidebar -->
-    <aside
-      :class="isSidebarOpen ? 'w-72' : 'w-20'"
-      class="flex flex-col bg-secondary text-white transition-width duration-300"
-    >
-      <div class="flex items-center justify-between p-4 h-16">
-        <span v-if="isSidebarOpen" class="text-2xl font-bold">GymFlow Dashboard v2</span>
-        <button @click="toggleSidebar" class="p-2 rounded-md hover:bg-dark">
-          <el-icon><Menu /></el-icon>
-        </button>
-      </div>
-      <nav class="mt-5 flex-1">
-        <router-link
-          to="/customers"
-          class="flex items-center px-4 py-3 text-gray-300 hover:bg-dark hover:text-white"
-          active-class="bg-primary text-white"
-        >
-          <el-icon size="24"><User /></el-icon>
-          <span v-if="isSidebarOpen" class="mx-4">Customers</span>
-        </router-link>
-        <router-link
-          to="/checkin"
-          class="flex items-center px-4 py-3 mt-2 text-gray-300 hover:bg-dark hover:text-white"
-          active-class="bg-primary text-white"
-        >
-          <el-icon size="24"><Checked /></el-icon>
-          <span v-if="isSidebarOpen" class="mx-4">Check-in</span>
-        </router-link>
-        <router-link
-          to="/face-recognition"
-          class="flex items-center px-4 py-3 mt-2 text-gray-300 hover:bg-dark hover:text-white"
-          active-class="bg-primary text-white"
-        >
-          <el-icon size="24"><View /></el-icon>
-          <span v-if="isSidebarOpen" class="mx-4">Face Recognition</span>
-        </router-link>
-      </nav>
-    </aside>
+  <el-container class="layout-container-demo" style="height: 100vh">
+    <el-aside width="200px">
+      <el-scrollbar>
+        <el-menu :default-openeds="['1']" router>
+          <el-sub-menu index="1">
+            <template #title>
+              <el-icon><message /></el-icon>Management
+            </template>
+            <el-menu-item index="/customers">Customers</el-menu-item>
+            <el-menu-item index="/checkin">Check-in</el-menu-item>
+            <el-menu-item index="/face-recognition">Face Recognition</el-menu-item>
+          </el-sub-menu>
+        </el-menu>
+      </el-scrollbar>
+    </el-aside>
 
-    <!-- Main content -->
-    <div class="flex flex-col flex-1 overflow-hidden">
-      <!-- Header -->
-      <header class="flex items-center justify-end p-4 bg-white border-b border-stroke h-16">
-        <div>
-          <el-button type="primary" @click="logout">Logout</el-button>
+    <el-container>
+      <el-header style="text-align: right; font-size: 12px">
+        <div class="toolbar">
+          <el-dropdown>
+            <el-icon style="margin-right: 8px; margin-top: 1px">
+              <setting />
+            </el-icon>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>View</el-dropdown-item>
+                <el-dropdown-item>Add</el-dropdown-item>
+                <el-dropdown-item>Delete</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <span>Admin</span>
         </div>
-      </header>
+      </el-header>
 
-      <!-- Content -->
-      <main class="flex-1 p-6 overflow-y-auto">
-        <router-view />
-      </main>
-    </div>
-  </div>
+      <el-main>
+        <el-scrollbar>
+          <router-view />
+        </el-scrollbar>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-import { User, Checked, View, Menu } from '@element-plus/icons-vue'
-
-const isSidebarOpen = ref(true)
-
-const toggleSidebar = () => {
-  isSidebarOpen.value = !isSidebarOpen.value
-}
-
-const logout = () => {
-  console.log('Logout clicked')
-}
+<script lang="ts" setup>
+import { Message, Setting } from '@element-plus/icons-vue'
 </script>
+
+<style scoped>
+.layout-container-demo .el-header {
+  position: relative;
+  background-color: var(--el-color-primary-light-7);
+  color: var(--el-text-color-primary);
+}
+.layout-container-demo .el-aside {
+  color: var(--el-text-color-primary);
+  background: var(--el-color-primary-light-8);
+}
+.layout-container-demo .el-menu {
+  border-right: none;
+}
+.layout-container-demo .el-main {
+  padding: 20px;
+}
+.layout-container-demo .toolbar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  right: 20px;
+}
+</style>
