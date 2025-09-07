@@ -111,7 +111,7 @@ jobs:
       - name: Test
         run: |
           if [ "${{ matrix.service }}" == "customer-service" ]; then
-            dotnet test services/customer-service/CustomerService.sln --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=teamcity /p:CoverletOutputFormat=cobertura
+            dotnet test services/customer-service/CustomerService.sln --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=teamcity /p:CoverletOutputFormat=cobertura
           else
             dotnet test services/${{ matrix.service }}/${{ matrix.service }}.csproj --no-restore
           fi
