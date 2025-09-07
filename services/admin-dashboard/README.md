@@ -1,6 +1,6 @@
 # Admin Dashboard
 
-This is the frontend dashboard for the Gym Flow application. It is built with Vue 3 and Element Plus.
+This is the frontend dashboard for the Gym Flow application. It is built with Vue 3, Element Plus, and Tailwind CSS.
 
 ## Project Structure
 

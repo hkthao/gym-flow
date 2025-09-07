@@ -29,7 +29,7 @@ GymFlow là hệ thống quản lý khách hàng và check-in/out tại phòng g
 ### 2.2 Thành phần khác
 
 - **Database:** PostgreSQL (transactional), MongoDB (optional cho ảnh/metadata).
-- **Frontend:** Vue 3 + Element Plus Admin Dashboard (SPA).
+- **Frontend:** Vue 3 + Element Plus + Tailwind CSS Admin Dashboard (SPA).
 - **API Gateway:** Kong/Envoy/Traefik để điều hướng request và auth.
 - **CI/CD Pipeline:** Tekton hoặc Jenkins.
 - **Deployment:** Docker containers → Kubernetes / OpenShift.
