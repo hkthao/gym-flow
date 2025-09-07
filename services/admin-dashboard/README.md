@@ -14,6 +14,22 @@ Each module has the following structure:
 -   `views`: Vue views for the module.
 -   `tests`: Unit tests for the module.
 
+## Unit Tests
+
+The project is set up with Vitest for unit testing. However, the current tests are placeholders and do not provide meaningful coverage. Testing components that use Element Plus has proven to be complex and requires further investigation.
+
+To run the tests:
+
+```bash
+npm run test:unit
+```
+
+To run the tests with coverage:
+
+```bash
+npm run test:coverage
+```
+
 ## Adding a New Module
 
 To add a new module, follow these steps:

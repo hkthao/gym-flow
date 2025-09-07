@@ -1,13 +1,6 @@
+// src/tests/setup.ts
 import { config } from '@vue/test-utils'
+import ElementPlus from 'element-plus'
 
-config.global.stubs = {
-  'el-input': {
-    template: '<input v-bind="$attrs" />'
-  },
-  'el-table': {
-    template: '<div><slot /></div>'
-  },
-  'el-table-column': {
-    template: '<div><slot /></div>'
-  }
-}
+// Install Element Plus plugin
+config.global.plugins.push(ElementPlus)
