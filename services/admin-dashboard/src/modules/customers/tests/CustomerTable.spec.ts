@@ -1,13 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { mount, VueWrapper } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerTable from '../components/CustomerTable.vue'
 import { useCustomerStore } from '../stores/customerStore'
 import { nextTick } from 'vue'
 
 describe('CustomerTable.vue', () => {
-  let wrapper
-  let store
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let wrapper: VueWrapper<any>
+  let store: ReturnType<typeof useCustomerStore>
 
   beforeEach(() => {
     wrapper = mount(CustomerTable, {
@@ -46,9 +47,9 @@ describe('CustomerTable.vue', () => {
     store.customers = [customer]
     await nextTick()
     const editButton = wrapper.findAll('.el-button').find(b => b.text() === 'Edit')
-    await editButton.trigger('click')
+    await editButton!.trigger('click')
     expect(wrapper.emitted('edit')).toBeTruthy()
-    expect(wrapper.emitted('edit')[0][0]).toEqual(customer)
+    expect(wrapper.emitted('edit')![0][0]).toEqual(customer)
   })
 
   it('calls deleteCustomer when delete is confirmed', () => {

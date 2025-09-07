@@ -1,58 +1,53 @@
 # gym-flow
 GymFlow - Ứng dụng quản lý khách hàng và check-in/out cho phòng gym, xây dựng theo kiến trúc microservices và CI/CD.
 
-## Getting Started with Docker Compose
+## Local Development Workflow
 
-To build and run the services using Docker Compose:
+This project is set up for a flexible local development experience, allowing you to run backend and frontend services independently.
 
-1.  Make sure you have Docker and Docker Compose installed.
-2.  Navigate to the root of this project:
-    ```bash
-    cd gym-flow
-    ```
-3.  Build the Docker images for all services:
-    ```bash
-    docker-compose build
-    ```
-4.  Start all services:
-    ```bash
-    docker-compose up
-    ```
-    The services will be accessible at:
-    - AI Face Service: `http://localhost:5000`
-    - Customer Service: `http://localhost:5001`
-    - Checkin Service: `http://localhost:5002`
-    - Auth Service: `http://localhost:5003`
+### Running Backend Services
 
-## Getting Started with Frontend
+To build and run all backend services (including the database):
 
-To run the frontend dashboard:
+```bash
+# Build and start all backend containers
+docker-compose up --build -d
+```
 
-1.  Make sure you have Node.js and npm installed.
-2.  Navigate to the `admin-dashboard` directory:
+The services will be accessible at:
+- AI Face Service: `http://localhost:5000`
+- Customer Service: `http://localhost:5001`
+- Checkin Service: `http://localhost:5002`
+- Auth Service: `http://localhost:5003`
+
+### Running Frontend Service (Hot-Reload)
+
+For frontend development with hot-reloading, it's recommended to run the Vue dev server directly. This connects to the running backend containers.
+
+1.  Navigate to the `admin-dashboard` directory:
     ```bash
     cd services/admin-dashboard
     ```
-3.  Install the dependencies:
+2.  Install dependencies:
     ```bash
     npm install
     ```
-4.  Start the development server:
+3.  Start the development server:
     ```bash
     npm run dev
     ```
     The dashboard will be accessible at `http://localhost:5173`.
 
-## Running Tests
+### Running Frontend Service (Docker)
 
-### Frontend (admin-dashboard)
-
-To run the unit tests for the `admin-dashboard`, navigate to the `services/admin-dashboard` directory and run the test script:
+To build and run the frontend as a Docker container (without hot-reload):
 
 ```bash
-cd services/admin-dashboard
-npm run test:unit
+# Build and start the frontend container
+docker-compose -f docker-compose.frontend.yml up --build -d
 ```
+The dashboard will be accessible at `http://localhost:8081`.
+## Running Tests
 
 ### Python (ai-face-service)
 

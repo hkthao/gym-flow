@@ -1,10 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { mount, VueWrapper } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerForm from '../components/CustomerForm.vue'
 
 describe('CustomerForm.vue', () => {
-  let wrapper
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let wrapper: VueWrapper<any>
 
   beforeEach(() => {
     wrapper = mount(CustomerForm, {
@@ -51,13 +52,13 @@ describe('CustomerForm.vue', () => {
 
   it('emits update:visible when cancel button is clicked', async () => {
     const cancelButton = wrapper.findAll('.el-button').find(b => b.text() === 'Cancel')
-    await cancelButton.trigger('click')
-    expect(wrapper.emitted('update:visible')[0][0]).toBe(false)
+    await cancelButton!.trigger('click')
+    expect(wrapper.emitted('update:visible')![0][0]).toBe(false)
   })
 
   it('closes the dialog on confirm', async () => {
     const confirmButton = wrapper.findAll('.el-button').find(b => b.text() === 'Confirm')
-    await confirmButton.trigger('click')
-    expect(wrapper.emitted('update:visible')[0][0]).toBe(false)
+    await confirmButton!.trigger('click')
+    expect(wrapper.emitted('update:visible')![0][0]).toBe(false)
   })
 })
