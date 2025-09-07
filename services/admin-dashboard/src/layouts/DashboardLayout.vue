@@ -1,45 +1,61 @@
 <template>
-  <el-container class="h-screen">
-    <el-aside width="200px" class="bg-gray-800 text-white">
-      <div class="p-4 text-xl font-bold">Admin Dashboard</div>
-      <el-menu
-        :default-active="activeIndex"
-        class="el-menu-vertical-demo"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-        router
-      >
-        <el-menu-item index="/customers">
+  <div class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-4 text-2xl font-bold text-gray-800">GymFlow</div>
+      <nav class="mt-5">
+        <router-link
+          to="/customers"
+          class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200"
+          active-class="bg-gray-300"
+        >
           <el-icon><User /></el-icon>
-          <span>Customers</span>
-        </el-menu-item>
-        <el-menu-item index="/checkin">
+          <span class="mx-4">Customers</span>
+        </router-link>
+        <router-link
+          to="/checkin"
+          class="flex items-center px-4 py-2 mt-2 text-gray-700 hover:bg-gray-200"
+          active-class="bg-gray-300"
+        >
           <el-icon><Checked /></el-icon>
-          <span>Check-in</span>
-        </el-menu-item>
-        <el-menu-item index="/face-recognition">
+          <span class="mx-4">Check-in</span>
+        </router-link>
+        <router-link
+          to="/face-recognition"
+          class="flex items-center px-4 py-2 mt-2 text-gray-700 hover:bg-gray-200"
+          active-class="bg-gray-300"
+        >
           <el-icon><View /></el-icon>
-          <span>Face Recognition</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
-    <el-main>
-      <router-view />
-    </el-main>
-  </el-container>
+          <span class="mx-4">Face Recognition</span>
+        </router-link>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="flex flex-col flex-1 overflow-hidden">
+      <!-- Header -->
+      <header class="flex items-center justify-between p-4 bg-white border-b">
+        <div>
+          <!-- Breadcrumbs or page title can go here -->
+        </div>
+        <div>
+          <el-button type="primary" @click="logout">Logout</el-button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <router-view />
+      </main>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { User, Checked, View } from '@element-plus/icons-vue'
 
-const activeIndex = ref('/customers')
-</script>
-
-<style scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
+const logout = () => {
+  // Handle logout
+  console.log('Logout clicked')
 }
-</style>
+</script>
