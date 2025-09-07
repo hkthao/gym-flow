@@ -1,12 +1,13 @@
 import { describe, it, expect, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { mount, VueWrapper } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerListView from '../views/CustomerListView.vue'
 import CustomerTable from '../components/CustomerTable.vue'
 
 describe('CustomerListView.vue', () => {
   it('opens the form when add button is clicked', async () => {
-    const wrapper = mount(CustomerListView, {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const wrapper: VueWrapper<any> = mount(CustomerListView, {
       global: {
         plugins: [
           createTestingPinia({
@@ -24,7 +25,8 @@ describe('CustomerListView.vue', () => {
   })
 
   it('opens the form with customer data when edit event is received', async () => {
-    const wrapper = mount(CustomerListView, {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const wrapper: VueWrapper<any> = mount(CustomerListView, {
       global: {
         plugins: [
           createTestingPinia({
