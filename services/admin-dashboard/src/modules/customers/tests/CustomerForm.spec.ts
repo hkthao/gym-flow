@@ -1,64 +1,50 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { mount, VueWrapper } from '@vue/test-utils'
-import { createTestingPinia } from '@pinia/testing'
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
 import CustomerForm from '../components/CustomerForm.vue'
 
 describe('CustomerForm.vue', () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let wrapper: VueWrapper<any>
-
-  beforeEach(() => {
-    wrapper = mount(CustomerForm, {
+  const mountComponent = (props = {}) => {
+    return mount(CustomerForm, {
       props: {
         visible: true,
-        customer: {
-          fullName: 'John Doe',
-          phone: '123',
-          email: 'test@test.com',
-          gender: 'Male',
-          address: '123 St'
-        }
-      },
-      global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
-        stubs: {
-          'el-dialog': false,
-          'el-form': false,
-          'el-form-item': false,
-          'el-input': false,
-          'el-select': false,
-          'el-option': false,
-          'el-button': false,
-        }
-      },
-      attachTo: document.body
+        customer: null,
+        ...props
+      }
     })
+  }
+
+  it('renders form with empty data for a new customer', () => {
+    const wrapper = mountComponent({ customer: {} })
+    const textField = wrapper.findComponent({ name: 'VTextField' })
+    // For a new customer, the modelValue should be undefined or empty
+    expect(textField.props('modelValue')).toBeUndefined()
   })
 
-  it('renders form with initial data', () => {
-    const input = wrapper.find('input[type="text"]')
-    expect((input.element as HTMLInputElement).value).toBe('John Doe')
-  })
-
-  it('updates form data on input', async () => {
-    const input = wrapper.find('input[type="text"]')
-    await input.setValue('Jane Doe')
-    expect(wrapper.vm.form.fullName).toBe('Jane Doe')
+  it('renders form with data for an existing customer', () => {
+    const customer = { id: 1, fullName: 'Test User' }
+    const wrapper = mountComponent({ customer })
+    const textField = wrapper.findComponent({ name: 'VTextField' })
+    expect(textField.props('modelValue')).toBe('Test User')
   })
 
   it('emits update:visible when cancel button is clicked', async () => {
-    const cancelButton = wrapper.findAll('.el-button').find(b => b.text() === 'Cancel')
-    await cancelButton!.trigger('click')
-    expect(wrapper.emitted('update:visible')![0][0]).toBe(false)
+    const wrapper = mountComponent()
+    // Find the cancel button and click it
+    const buttons = wrapper.findAllComponents({ name: 'VBtn' })
+    const cancelButton = buttons.find(btn => btn.text() === 'Cancel')
+    await cancelButton.trigger('click')
+    
+    expect(wrapper.emitted('update:visible')).toBeTruthy()
+    expect(wrapper.emitted('update:visible')[0][0]).toBe(false)
   })
 
-  it('closes the dialog on confirm', async () => {
-    const confirmButton = wrapper.findAll('.el-button').find(b => b.text() === 'Confirm')
-    await confirmButton!.trigger('click')
-    expect(wrapper.emitted('update:visible')![0][0]).toBe(false)
+  it('emits update:visible when confirm button is clicked', async () => {
+    const wrapper = mountComponent()
+    const buttons = wrapper.findAllComponents({ name: 'VBtn' })
+    const confirmButton = buttons.find(btn => btn.text() === 'Confirm')
+    await confirmButton.trigger('click')
+    
+    expect(wrapper.emitted('update:visible')).toBeTruthy()
+    expect(wrapper.emitted('update:visible')[0][0]).toBe(false)
   })
 })

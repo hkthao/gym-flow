@@ -11,7 +11,7 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       setupFiles: ['./src/tests/setup.ts'], // Add this line
       deps: {
-        inline: ['element-plus']
+        inline: ['vuetify']
       },
       coverage: {
         provider: 'v8',

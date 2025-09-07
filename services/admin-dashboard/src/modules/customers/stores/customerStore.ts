@@ -27,16 +27,22 @@ export const useCustomerStore = defineStore('customer', () => {
   const total = ref(0)
   const currentPage = ref(1)
   const pageSize = ref(10)
+  const loading = ref(false)
 
   const fetchCustomers = async () => {
+    loading.value = true
     // In a real app, you would fetch this from an API
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500))
     customers.value = mockCustomers
     total.value = mockCustomers.length
+    loading.value = false
   }
 
   const deleteCustomer = async (id: number) => {
     // In a real app, you would send a DELETE request to an API
     customers.value = customers.value.filter((c) => c.id !== id)
+    total.value = customers.value.length
   }
 
   return {
@@ -44,6 +50,7 @@ export const useCustomerStore = defineStore('customer', () => {
     total,
     currentPage,
     pageSize,
+    loading,
     fetchCustomers,
     deleteCustomer
   }

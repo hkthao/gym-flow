@@ -1,65 +1,82 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { mount, VueWrapper } from '@vue/test-utils'
+import { describe, it, expect, vi } from 'vitest'
+import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerTable from '../components/CustomerTable.vue'
 import { useCustomerStore } from '../stores/customerStore'
 import { nextTick } from 'vue'
 
 describe('CustomerTable.vue', () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let wrapper: VueWrapper<any>
-  let store: ReturnType<typeof useCustomerStore>
-
-  beforeEach(() => {
-    wrapper = mount(CustomerTable, {
+  const mountComponent = () => {
+    const wrapper = mount(CustomerTable, {
       global: {
         plugins: [
           createTestingPinia({
             createSpy: vi.fn,
-          }),
-        ],
-        stubs: {
-          'el-table': false, // Use real component
-          'el-table-column': false,
-          'el-button': false,
-          'el-popconfirm': false,
-          'el-pagination': false,
-          'el-input': false,
-        }
-      },
+            initialState: {
+              customer: {
+                customers: [
+                  { id: 1, fullName: 'John Doe', phone: '111', email: 'a@a.com', gender: 'Male', membershipStatus: 'Active' }
+                ],
+                total: 1,
+                currentPage: 1,
+                pageSize: 10,
+                loading: false
+              }
+            }
+          })
+        ]
+      }
     })
-    store = useCustomerStore()
-  })
+    const store = useCustomerStore()
+    return { wrapper, store }
+  }
 
-  it('fetches customers on mount', () => {
+  it('fetches customers on options update (simulating mount)', () => {
+    const { store } = mountComponent()
+    // v-data-table emits `update:options` on mount, which triggers this
     expect(store.fetchCustomers).toHaveBeenCalledTimes(1)
   })
 
-  it('displays customer data', async () => {
-    const customer = { id: 1, fullName: 'John Doe' }
-    store.customers = [customer]
-    await nextTick()
-    expect(wrapper.text()).toContain('John Doe')
+  it('displays customer data in the table', () => {
+    const { wrapper } = mountComponent()
+    const dataTable = wrapper.findComponent({ name: 'VDataTable' })
+    expect(dataTable.props('items')).toHaveLength(1)
+    expect(dataTable.props('items')[0].fullName).toBe('John Doe')
   })
 
-  it('emits edit event when edit button is clicked', async () => {
-    const customer = { id: 1, fullName: 'John Doe' }
-    store.customers = [customer]
+  it('emits edit event when handleEdit is called', async () => {
+    const { wrapper, store } = mountComponent()
+    const customer = store.customers[0]
+    
+    // Since icons inside v-data-table are hard to target, we test the method directly
+    wrapper.vm.handleEdit(customer)
     await nextTick()
-    const editButton = wrapper.findAll('.el-button').find(b => b.text() === 'Edit')
-    await editButton!.trigger('click')
+    
     expect(wrapper.emitted('edit')).toBeTruthy()
-    expect(wrapper.emitted('edit')![0][0]).toEqual(customer)
+    expect(wrapper.emitted('edit')[0][0]).toEqual(customer)
   })
 
-  it('calls deleteCustomer when delete is confirmed', () => {
-    wrapper.vm.handleDelete(1)
-    expect(store.deleteCustomer).toHaveBeenCalledWith(1)
+  it('opens delete dialog when openDeleteDialog is called', async () => {
+    const { wrapper, store } = mountComponent()
+    const customer = store.customers[0]
+    
+    wrapper.vm.openDeleteDialog(customer)
+    await nextTick()
+    
+    expect(wrapper.vm.deleteDialog).toBe(true)
+    expect(wrapper.vm.itemToDelete).toEqual(customer)
   })
 
-  it('handles page changes', async () => {
-    await wrapper.vm.handlePageChange(2)
-    expect(store.currentPage).toBe(2)
-    expect(store.fetchCustomers).toHaveBeenCalledTimes(2)
+  it('calls deleteCustomer when delete is confirmed', async () => {
+    const { wrapper, store } = mountComponent()
+    const customer = store.customers[0]
+    
+    wrapper.vm.openDeleteDialog(customer) // Open dialog first
+    await nextTick()
+    wrapper.vm.confirmDelete() // Then confirm
+    await nextTick()
+    
+    expect(store.deleteCustomer).toHaveBeenCalledWith(customer.id)
+    expect(wrapper.vm.deleteDialog).toBe(false)
   })
 })

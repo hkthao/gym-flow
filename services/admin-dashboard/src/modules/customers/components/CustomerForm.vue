@@ -1,76 +1,80 @@
 <template>
-  <el-dialog v-model="dialogVisible" :title="form.id ? 'Edit Customer' : 'Add Customer'">
-    <el-form :model="form" label-width="120px">
-      <el-form-item label="Full Name">
-        <el-input v-model="form.fullName" />
-      </el-form-item>
-      <el-form-item label="Phone">
-        <el-input v-model="form.phone" />
-      </el-form-item>
-      <el-form-item label="Email">
-        <el-input v-model="form.email" />
-      </el-form-item>
-      <el-form-item label="Gender">
-        <el-select v-model="form.gender" placeholder="Select gender">
-          <el-option label="Male" value="Male" />
-          <el-option label="Female" value="Female" />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="Address">
-        <el-input v-model="form.address" type="textarea" />
-      </el-form-item>
-    </el-form>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="handleSubmit">Confirm</el-button>
-      </span>
-    </template>
-  </el-dialog>
+  <v-dialog :model-value="visible" @update:model-value="closeDialog" max-width="600px">
+    <v-card>
+      <v-card-title>
+        <span class="text-h5">{{ form.id ? 'Edit Customer' : 'Add Customer' }}</span>
+      </v-card-title>
+
+      <v-card-text>
+        <v-container>
+          <v-form ref="formRef">
+            <v-row>
+              <v-col cols="12">
+                <v-text-field v-model="form.fullName" label="Full Name" required></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field v-model="form.phone" label="Phone"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field v-model="form.email" label="Email"></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-select
+                  v-model="form.gender"
+                  :items="['Male', 'Female']"
+                  label="Gender"
+                ></v-select>
+              </v-col>
+              <v-col cols="12">
+                <v-textarea v-model="form.address" label="Address"></v-textarea>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-container>
+      </v-card-text>
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="blue-darken-1" variant="text" @click="closeDialog">Cancel</v-btn>
+        <v-btn color="blue-darken-1" variant="text" @click="handleSubmit">Confirm</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import type { Customer } from '../types'
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    required: true
-  },
-  customer: {
-    type: Object,
-    default: () => ({})
-  }
-})
+const props = defineProps<{
+  visible: boolean
+  customer: Partial<Customer> | null
+}>()
 
 const emit = defineEmits(['update:visible'])
 
-const dialogVisible = ref(props.visible)
-const form = ref({ ...props.customer })
+const form = ref<Partial<Customer>>({})
 
-watch(
-  () => props.visible,
-  (value) => {
-    dialogVisible.value = value
-  }
-)
-
-watch(dialogVisible, (value) => {
-  if (!value) {
-    emit('update:visible', false)
-  }
-})
-
+// Watch for the customer prop to change and update the form
 watch(
   () => props.customer,
-  (value) => {
-    form.value = { ...value }
-  }
+  (newVal) => {
+    if (newVal) {
+      form.value = { ...newVal }
+    } else {
+      form.value = {}
+    }
+  },
+  { immediate: true }
 )
+
+const closeDialog = () => {
+  emit('update:visible', false)
+}
 
 const handleSubmit = () => {
   // In a real app, you would call an API to save the customer
   console.log('Form submitted:', form.value)
-  dialogVisible.value = false
+  closeDialog()
 }
 </script>
