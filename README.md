@@ -40,6 +40,7 @@ For frontend development with hot-reloading, it's recommended to run the Vue dev
 
 ### Running Frontend Service (Docker)
 
+<<<<<<< HEAD
 To build and run the frontend as a Docker container (without hot-reload):
 
 ```bash
@@ -48,6 +49,15 @@ docker-compose -f docker-compose.frontend.yml up --build -d
 ```
 The dashboard will be accessible at `http://localhost:8081`.
 ## Running Tests
+
+### Frontend (admin-dashboard)
+
+To run the unit tests for the `admin-dashboard`, navigate to the `services/admin-dashboard` directory and run the test script:
+
+```bash
+cd services/admin-dashboard
+npm run test:unit
+```
 
 ### Python (ai-face-service)
 

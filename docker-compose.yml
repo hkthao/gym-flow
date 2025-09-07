@@ -40,6 +40,16 @@ services:
       - gymflow-network
     logging: *default-logging
 
+  admin-dashboard:
+    build:
+      context: ./services/admin-dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - gymflow-network
+    logging: *default-logging
+
   postgres-db:
     image: postgres:13
     environment:
