@@ -19,7 +19,7 @@ export const useCustomerStore = defineStore('customer', () => {
     loading.value = true
     try {
       const params = new URLSearchParams()
-      params.append('page', currentPage.value.toString())
+      params.append('pageNumber', currentPage.value.toString())
       params.append('pageSize', pageSize.value.toString())
       if (search.value) {
         params.append('search', search.value)

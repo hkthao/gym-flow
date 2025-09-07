@@ -24,20 +24,20 @@
       </v-col>
     </v-row>
 
-    <v-data-table
+    <v-data-table-server
+      v-model:items-per-page="pageSize"
       :headers="headers"
       :items="customers"
+      :items-length="total"
       :loading="loading"
-      :items-per-page="pageSize"
-      :page="currentPage"
-      :server-items-length="total"
+      :search="search"
       @update:options="handleOptionsUpdate"
     >
       <template #[`item.actions`]="{ item }">
         <v-icon small class="mr-2" @click="handleEdit(item)">mdi-pencil</v-icon>
         <v-icon small @click="openDeleteDialog(item)">mdi-delete</v-icon>
       </template>
-    </v-data-table>
+    </v-data-table-server>
 
     <!-- Delete Confirmation Dialog -->
     <v-dialog v-model="deleteDialog" max-width="500px">
@@ -91,7 +91,7 @@ watch(statusFilter, () => {
 })
 
 onMounted(() => {
-  // fetchCustomers will be called by handleOptionsUpdate on mount
+  fetchCustomers()
 })
 
 const handleOptionsUpdate = (options: DataTableOptions) => {
