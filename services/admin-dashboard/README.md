@@ -1,6 +1,6 @@
 # Admin Dashboard
 
-This is the frontend dashboard for the Gym Flow application. It is built with Vue 3, Element Plus, and Tailwind CSS.
+This is the frontend dashboard for the GymFlow application. It is built with Vue 3 and Vuetify.
 
 ## Project Structure
 
@@ -16,7 +16,7 @@ Each module has the following structure:
 
 ## Unit Tests
 
-The project is set up with Vitest for unit testing. However, the current tests are placeholders and do not provide meaningful coverage. Testing components that use Element Plus has proven to be complex and requires further investigation.
+The project is set up with Vitest for unit testing. The test suite has been configured to work with Vuetify and provides a solid foundation for component testing.
 
 To run the tests:
 
