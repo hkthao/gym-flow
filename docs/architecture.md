@@ -22,7 +22,7 @@ GymFlow là hệ thống quản lý khách hàng và check-in/out tại phòng g
 ### 2.1 Microservices
 
 - **ai-face-service (Python/FastAPI):** Nhận diện khuôn mặt, trả về member_id.
-- **customer-service (ASP.NET Core):** CRUD khách hàng, quản lý membership.
+- **customer-service (ASP.NET Core):** CRUD khách hàng, quản lý membership. Được thiết kế theo kiến trúc Clean Architecture.
 - **checkin-service (ASP.NET Core):** Xử lý check-in/out, ghi attendance.
 - **auth-service (ASP.NET Core):** Quản lý xác thực và ủy quyền người dùng.
 
@@ -72,10 +72,10 @@ graph TD;
 
 ### 4.1 PostgreSQL
 
-- **members** (id, name, email, phone, status, created_at)
-- **memberships** (id, member_id, plan, start_date, end_date, status)
-- **checkins** (id, member_id, in_at, out_at, method, location_id)
-- **face_embeddings** (member_id, vector_embedding, model_version, image_uri, created_at)
+- **customers** (id: UUID, full_name: VARCHAR, phone: VARCHAR UNIQUE, email: VARCHAR UNIQUE, birthday: DATE, gender: ENUM, address: VARCHAR, membership_status: ENUM, created_at: TIMESTAMP WITH TIME ZONE, updated_at: TIMESTAMP WITH TIME ZONE)
+- **memberships** (id, customer_id, plan, start_date, end_date, status)
+- **checkins** (id, customer_id, in_at, out_at, method, location_id)
+- **face_embeddings** (customer_id, vector_embedding, model_version, image_uri, created_at)
 
 ### 4.2 MongoDB (optional)
 

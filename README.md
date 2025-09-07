@@ -37,7 +37,7 @@ pytest
 
 ### ASP.NET Core (customer-service, checkin-service, auth-service)
 
-Navigate to each service directory and run dotnet test:
+For ASP.NET Core services, navigate to each service directory and run dotnet test. Note that `customer-service` now includes both unit and integration tests.
 
 ```bash
 cd services/customer-service
