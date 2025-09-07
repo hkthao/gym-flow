@@ -11,6 +11,10 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       deps: {
         inline: ['element-plus']
+      },
+      coverage: {
+        provider: 'v8',
+        reporter: ['text', 'json', 'html']
       }
     }
   })
