@@ -1,0 +1,23 @@
+version: '3.8'
+
+# Định nghĩa cấu hình logging chung
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+services:
+  admin-dashboard:
+    build:
+      context: ./services/admin-dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - gymflow-network
+    logging: *default-logging
+
+networks:
+  gymflow-network:
+    driver: bridge
