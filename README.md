@@ -24,7 +24,35 @@ To build and run the services using Docker Compose:
     - Checkin Service: `http://localhost:5002`
     - Auth Service: `http://localhost:5003`
 
+## Getting Started with Frontend
+
+To run the frontend dashboard:
+
+1.  Make sure you have Node.js and npm installed.
+2.  Navigate to the `admin-dashboard` directory:
+    ```bash
+    cd services/admin-dashboard
+    ```
+3.  Install the dependencies:
+    ```bash
+    npm install
+    ```
+4.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+    The dashboard will be accessible at `http://localhost:5173`.
+
 ## Running Tests
+
+### Frontend (admin-dashboard)
+
+To run the unit tests for the `admin-dashboard`, navigate to the `services/admin-dashboard` directory and run the test script:
+
+```bash
+cd services/admin-dashboard
+npm run test:unit
+```
 
 ### Python (ai-face-service)
 
