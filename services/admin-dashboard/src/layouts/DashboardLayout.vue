@@ -6,7 +6,7 @@
       class="flex flex-col bg-secondary text-white transition-width duration-300"
     >
       <div class="flex items-center justify-between p-4 h-16">
-        <span v-if="isSidebarOpen" class="text-2xl font-bold">GymFlow</span>
+        <span v-if="isSidebarOpen" class="text-2xl font-bold">GymFlow Dashboard v2</span>
         <button @click="toggleSidebar" class="p-2 rounded-md hover:bg-dark">
           <el-icon><Menu /></el-icon>
         </button>
