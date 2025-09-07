@@ -41,14 +41,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseRouting(); // Add UseRouting
-
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints => // Add UseEndpoints
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
+
 
 app.Run();
 
