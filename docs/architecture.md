@@ -29,7 +29,7 @@ GymFlow là hệ thống quản lý khách hàng và check-in/out tại phòng g
 ### 2.2 Thành phần khác
 
 - **Database:** PostgreSQL (transactional), MongoDB (optional cho ảnh/metadata).
-- **Frontend:** React.js Admin Dashboard (SPA).
+- **Frontend:** Vue 3 + Element Plus Admin Dashboard (SPA).
 - **API Gateway:** Kong/Envoy/Traefik để điều hướng request và auth.
 - **CI/CD Pipeline:** Tekton hoặc Jenkins.
 - **Deployment:** Docker containers → Kubernetes / OpenShift.
@@ -43,8 +43,8 @@ GymFlow là hệ thống quản lý khách hàng và check-in/out tại phòng g
 
 ```mermaid
 graph TD;
-    User_Staff-->React_SPA;
-    React_SPA-->API_Gateway;
+    User_Staff-->Vue_SPA;
+    Vue_SPA-->API_Gateway;
     API_Gateway-->Customer_Service;
     API_Gateway-->Check_in_out_Service;
     API_Gateway-->Face_Recognition_Service;
@@ -125,7 +125,7 @@ graph TD;
 
   - ASP.NET Core: `dotnet build && dotnet test`.
   - Python: `pytest`.
-  - React: `npm test && npm run build`.
+  - Vue: `npm run test:unit && npm run build`.
 
 - **Containerize:** Build Docker image, push to registry.
 - **Deploy:** Helm/Kustomize → Kubernetes/OpenShift.
