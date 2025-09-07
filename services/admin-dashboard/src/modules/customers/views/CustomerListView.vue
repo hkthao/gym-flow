@@ -1,10 +1,34 @@
 <template>
   <div>
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-2xl font-bold">Customer Management</h1>
-      <el-button type="primary" @click="handleAdd">Add Customer</el-button>
+    <!-- Dashboard Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-body">Total Customers</h3>
+        <p class="text-3xl font-bold text-dark">1,234</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-body">Active Members</h3>
+        <p class="text-3xl font-bold text-success">890</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-body">Inactive Members</h3>
+        <p class="text-3xl font-bold text-warning">344</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-body">New Signups (Month)</h3>
+        <p class="text-3xl font-bold text-info">56</p>
+      </div>
     </div>
-    <CustomerTable @edit="handleEdit" />
+
+    <!-- Customer Table Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-dark">Customer List</h2>
+        <el-button type="primary" @click="handleAdd">Add Customer</el-button>
+      </div>
+      <CustomerTable @edit="handleEdit" />
+    </div>
+
     <CustomerForm
       :visible="formVisible"
       :customer="selectedCustomer"

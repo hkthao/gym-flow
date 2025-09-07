@@ -1,45 +1,72 @@
 <template>
-  <el-container class="h-screen">
-    <el-aside width="200px" class="bg-gray-800 text-white">
-      <div class="p-4 text-xl font-bold">Admin Dashboard</div>
-      <el-menu
-        :default-active="activeIndex"
-        class="el-menu-vertical-demo"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-        router
-      >
-        <el-menu-item index="/customers">
-          <el-icon><User /></el-icon>
-          <span>Customers</span>
-        </el-menu-item>
-        <el-menu-item index="/checkin">
-          <el-icon><Checked /></el-icon>
-          <span>Check-in</span>
-        </el-menu-item>
-        <el-menu-item index="/face-recognition">
-          <el-icon><View /></el-icon>
-          <span>Face Recognition</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
-    <el-main>
-      <router-view />
-    </el-main>
-  </el-container>
+  <div class="flex h-screen bg-gray">
+    <!-- Sidebar -->
+    <aside
+      :class="isSidebarOpen ? 'w-72' : 'w-20'"
+      class="flex flex-col bg-secondary text-white transition-width duration-300"
+    >
+      <div class="flex items-center justify-between p-4 h-16">
+        <span v-if="isSidebarOpen" class="text-2xl font-bold">GymFlow</span>
+        <button @click="toggleSidebar" class="p-2 rounded-md hover:bg-dark">
+          <el-icon><Menu /></el-icon>
+        </button>
+      </div>
+      <nav class="mt-5 flex-1">
+        <router-link
+          to="/customers"
+          class="flex items-center px-4 py-3 text-gray-300 hover:bg-dark hover:text-white"
+          active-class="bg-primary text-white"
+        >
+          <el-icon size="24"><User /></el-icon>
+          <span v-if="isSidebarOpen" class="mx-4">Customers</span>
+        </router-link>
+        <router-link
+          to="/checkin"
+          class="flex items-center px-4 py-3 mt-2 text-gray-300 hover:bg-dark hover:text-white"
+          active-class="bg-primary text-white"
+        >
+          <el-icon size="24"><Checked /></el-icon>
+          <span v-if="isSidebarOpen" class="mx-4">Check-in</span>
+        </router-link>
+        <router-link
+          to="/face-recognition"
+          class="flex items-center px-4 py-3 mt-2 text-gray-300 hover:bg-dark hover:text-white"
+          active-class="bg-primary text-white"
+        >
+          <el-icon size="24"><View /></el-icon>
+          <span v-if="isSidebarOpen" class="mx-4">Face Recognition</span>
+        </router-link>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="flex flex-col flex-1 overflow-hidden">
+      <!-- Header -->
+      <header class="flex items-center justify-end p-4 bg-white border-b border-stroke h-16">
+        <div>
+          <el-button type="primary" @click="logout">Logout</el-button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <router-view />
+      </main>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { User, Checked, View } from '@element-plus/icons-vue'
+import { User, Checked, View, Menu } from '@element-plus/icons-vue'
 
-const activeIndex = ref('/customers')
-</script>
+const isSidebarOpen = ref(true)
 
-<style scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value
 }
-</style>
+
+const logout = () => {
+  console.log('Logout clicked')
+}
+</script>
