@@ -1,10 +1,11 @@
 # customer-service/Dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["src", "src/"]
-COPY ["CustomerService.sln", "./"]
+COPY ["services/customer-service/src", "src/"]
+COPY ["services/customer-service/tests", "tests/"]
+COPY ["services/customer-service/CustomerService.sln", "./"]
 RUN dotnet restore "CustomerService.sln"
-COPY . .
+COPY ["services/customer-service/.", "."]
 WORKDIR "/src/src/CustomerService.Api"
 RUN dotnet build "CustomerService.Api.csproj" -c Release -o /app/build
 
