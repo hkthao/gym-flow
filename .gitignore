@@ -46,6 +46,7 @@ node_modules/
 *~
 *.bak
 *.tmp
+**/TestResults/
 
 # Docker
 *.dockerignore
