@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
-import CustomerTable from '../components/CustomerTable.vue'
+import CustomerTable from '@/modules/customers/components/CustomerTable.vue'
 import { useCustomerStore } from '../stores/customerStore'
 import { nextTick } from 'vue'
 

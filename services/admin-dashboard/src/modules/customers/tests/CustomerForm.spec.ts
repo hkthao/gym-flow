@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
-import CustomerForm from '../components/CustomerForm.vue'
+import CustomerForm from '@/modules/customers/components/CustomerForm.vue'
 
 describe('CustomerForm.vue', () => {
   const mountComponent = (props = {}) => {

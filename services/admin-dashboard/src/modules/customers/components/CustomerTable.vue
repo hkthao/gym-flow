@@ -42,7 +42,8 @@
     <!-- Delete Confirmation Dialog -->
     <v-dialog v-model="deleteDialog" max-width="500px">
       <v-card>
-        <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+        <v-card-title class="text-h5">Confirm</v-card-title>
+        <v-card-text> Are you sure you want to delete this item? </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" text @click="deleteDialog = false">Cancel</v-btn>
@@ -58,7 +59,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { useCustomerStore } from '../stores/customerStore'
 import { storeToRefs } from 'pinia'
-import type { Customer } from '../types'
+import type { Customer } from '@/modules/customers/types'
 
 interface DataTableOptions {
   page: number
@@ -70,7 +71,8 @@ interface DataTableOptions {
 const emit = defineEmits(['edit'])
 
 const customerStore = useCustomerStore()
-const { customers, total, currentPage, pageSize, loading, statusFilter, search } = storeToRefs(customerStore)
+const { customers, total, currentPage, pageSize, loading, statusFilter, search } =
+  storeToRefs(customerStore)
 const { fetchCustomers, deleteCustomer } = customerStore
 
 const deleteDialog = ref(false)
@@ -82,7 +84,7 @@ const headers = [
   { title: 'Email', key: 'email' },
   { title: 'Gender', key: 'gender' },
   { title: 'Membership Status', key: 'membershipStatus' },
-  { title: 'Actions', key: 'actions', sortable: false }
+  { title: 'Actions', key: 'actions', sortable: false },
 ]
 
 // Watch for filter changes and refetch data

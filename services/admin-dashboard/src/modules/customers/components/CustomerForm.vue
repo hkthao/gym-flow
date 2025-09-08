@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import type { Customer } from '../types'
-import { useCustomerStore } from '../stores/customerStore'
+import { useCustomerStore } from '@/modules/customers/stores/customerStore'
 
 const props = defineProps<{
   visible: boolean

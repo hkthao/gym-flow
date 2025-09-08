@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
-import CustomerListView from '../views/CustomerListView.vue'
+import CustomerListView from '@/modules/customers/views/CustomerListView.vue'
 import CustomerTable from '../components/CustomerTable.vue'
 
 describe('CustomerListView.vue', () => {

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardLayout from '@/layouts/DashboardLayout.vue'
-import customerRoutes from '../modules/customers/router'
+import customerRoutes from '@/modules/customers/router'
 
 // Placeholder components for demonstration
 const CheckinView = { template: '<div>Check-in Page</div>' }

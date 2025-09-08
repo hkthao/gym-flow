@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { Customer } from '../types'
+import type { Customer } from '@/modules/customers/types'
 import axios from 'axios'
 
 // The API is always accessed from the browser, so it must use the host's localhost and exposed port.
