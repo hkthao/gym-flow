@@ -3,7 +3,7 @@ export interface Customer {
   fullName: string
   phone: string
   email: string
-  gender: string
-  membershipStatus: string
+  gender: 'Male' | 'Female'
+  membershipStatus: 'Active' | 'Inactive'
   address?: string
 }

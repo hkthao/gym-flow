@@ -24,10 +24,11 @@ namespace GymFlow.CustomerService.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomers(
             [FromQuery] string? search = null,
+            [FromQuery] string? status = null,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
-            var customers = await _customerService.SearchCustomersAsync(search, pageNumber, pageSize);
+            var customers = await _customerService.SearchCustomersAsync(search, status, pageNumber, pageSize);
             return Ok(customers);
         }
 

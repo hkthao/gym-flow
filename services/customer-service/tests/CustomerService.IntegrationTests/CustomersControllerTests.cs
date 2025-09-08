@@ -100,6 +100,19 @@ namespace GymFlow.CustomerService.IntegrationTests
         }
 
         [Fact]
+        public async Task GetCustomerById_ReturnsNotFound_WhenCustomerDoesNotExist()
+        {
+            // Arrange
+            var customerId = Guid.NewGuid();
+
+            // Act
+            var response = await _client.GetAsync($"/api/Customers/{customerId}");
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
         public async Task PostCustomer_ReturnsCreatedCustomer_WhenCustomerIsValid()
         {
             // Arrange
@@ -116,6 +129,21 @@ namespace GymFlow.CustomerService.IntegrationTests
             var createdCustomer = await response.Content.ReadAsAsync<GymFlow.CustomerService.Application.DTOs.CustomerDto>();
             createdCustomer.Should().NotBeNull();
             createdCustomer.FullName.Should().Be(newCustomer.FullName);
+        }
+
+        [Fact]
+        public async Task PostCustomer_ReturnsBadRequest_WhenCustomerIsInvalid()
+        {
+            // Arrange
+            var newCustomer = new Customer { FullName = "", Phone = "3333333333", Email = "api_new@example.com", MembershipStatus = Domain.Enums.MembershipStatus.Active };
+            var json = JsonConvert.SerializeObject(newCustomer);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            // Act
+            var response = await _client.PostAsync("/api/Customers", content);
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -136,6 +164,36 @@ namespace GymFlow.CustomerService.IntegrationTests
         }
 
         [Fact]
+        public async Task PutCustomer_ReturnsBadRequest_WhenIdMismatch()
+        {
+            // Arrange
+            var customerToUpdate = (await _client.GetFromJsonAsync<GymFlow.CustomerService.Domain.Common.PagedResult<GymFlow.CustomerService.Application.DTOs.CustomerDto>>("/api/Customers")).Data.First();
+            var json = JsonConvert.SerializeObject(customerToUpdate);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            // Act
+            var response = await _client.PutAsync($"/api/Customers/{Guid.NewGuid()}", content);
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async Task PutCustomer_ReturnsNotFound_WhenCustomerDoesNotExist()
+        {
+            // Arrange
+            var customerToUpdate = new Customer { Id = Guid.NewGuid(), FullName = "Updated Name" };
+            var json = JsonConvert.SerializeObject(customerToUpdate);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            // Act
+            var response = await _client.PutAsync($"/api/Customers/{customerToUpdate.Id}", content);
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
         public async Task DeleteCustomer_ReturnsNoContent_WhenCustomerExists()
         {
             // Arrange
@@ -147,6 +205,19 @@ namespace GymFlow.CustomerService.IntegrationTests
             // Assert
             response.EnsureSuccessStatusCode();
             response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async Task DeleteCustomer_ReturnsNotFound_WhenCustomerDoesNotExist()
+        {
+            // Arrange
+            var customerId = Guid.NewGuid();
+
+            // Act
+            var response = await _client.DeleteAsync($"/api/Customers/{customerId}");
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
         [Fact]

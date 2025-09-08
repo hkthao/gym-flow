@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import router from '../router'
+import router from '@/router'
 
 describe('Router', () => {
   it('has a root route', () => {

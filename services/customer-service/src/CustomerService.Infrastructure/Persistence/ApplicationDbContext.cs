@@ -9,7 +9,7 @@ namespace GymFlow.CustomerService.Infrastructure.Persistence
         {
         }
 
-        public DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
