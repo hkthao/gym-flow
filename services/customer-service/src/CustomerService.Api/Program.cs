@@ -55,7 +55,10 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<ApplicationDbContext>();
-        context.Database.Migrate();
+                    if (context.Database.IsRelational())
+            {
+                context.Database.Migrate();
+            }
     }
     catch (Exception ex)
     {
