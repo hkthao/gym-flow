@@ -1,47 +1,48 @@
 import { describe, it, expect, vi } from 'vitest'
-import { mount, VueWrapper } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
-import CustomerListView from '../views/CustomerListView.vue'
+import CustomerListView from '@/modules/customers/views/CustomerListView.vue'
 import CustomerTable from '../components/CustomerTable.vue'
 
 describe('CustomerListView.vue', () => {
-  it('opens the form when add button is clicked', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const wrapper: VueWrapper<any> = mount(CustomerListView, {
+  const mountComponent = () => {
+    return mount(CustomerListView, {
       global: {
         plugins: [
           createTestingPinia({
             createSpy: vi.fn
           })
         ],
-        stubs: {
-          'CustomerForm': true
-        }
+        // Use real components where possible, shallow mount others
+        shallow: true,
       }
     })
+  }
 
-    await wrapper.find('.el-button').trigger('click')
-    expect(wrapper.vm.formVisible).toBe(true)
+  it('renders dashboard cards and customer table', () => {
+    const wrapper = mountComponent()
+    // Check if cards and table are rendered
+    expect(wrapper.findAllComponents({ name: 'VCard' }).length).toBe(5) // 4 stat cards + 1 table card
+    expect(wrapper.findComponent(CustomerTable).exists()).toBe(true)
   })
 
-  it('opens the form with customer data when edit event is received', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const wrapper: VueWrapper<any> = mount(CustomerListView, {
-      global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn
-          })
-        ],
-        stubs: {
-          'CustomerForm': true
-        }
-      }
-    })
-
-    const customer = { id: 1, name: 'John Doe' }
-    await wrapper.findComponent(CustomerTable).vm.$emit('edit', customer)
+  it('opens the form when add button is clicked', async () => {
+    const wrapper = mountComponent()
+    const addButton = wrapper.find('[data-testid="add-customer-btn"]')
+    await addButton.trigger('click')
     expect(wrapper.vm.formVisible).toBe(true)
-    expect(wrapper.vm.selectedCustomer).toEqual(customer)
+    expect(wrapper.vm.selectedCustomer).toEqual({})
+  })
+
+  it('opens the form with customer data when edit event is received from table', async () => {
+    const wrapper = mountComponent()
+    const customerTable = wrapper.findComponent(CustomerTable)
+    const customerData = { id: 1, fullName: 'Test User' }
+    
+    // Simulate the edit event from the child component
+    await customerTable.vm.$emit('edit', customerData)
+    
+    expect(wrapper.vm.formVisible).toBe(true)
+    expect(wrapper.vm.selectedCustomer).toEqual(customerData)
   })
 })

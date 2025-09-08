@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<results>
+  <modules>
+    <module id="F7052E388F1CBE4680D0F6EDF1D307FE01000000" name="CustomerService.Domain" path="CustomerService.Domain" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="35" lines_partially_covered="0" lines_not_covered="0">
+      <functions>
+        <function id="0" name="get_Id()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="11" end_line="11" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="1" name="get_FullName()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="12" end_line="12" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="2" name="get_Phone()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="13" end_line="13" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="3" name="get_Email()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="14" end_line="14" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4" name="get_Birthday()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="23" end_line="23" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="5" name="get_Gender()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="24" end_line="24" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="6" name="get_Address()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="25" end_line="25" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="7" name="get_MembershipStatus()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="26" end_line="26" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="8" name="get_CreatedAt()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="27" end_line="27" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="9" name="get_UpdatedAt()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="28" end_line="28" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="10" name=".ctor()" namespace="GymFlow.CustomerService.Domain.Entities" type_name="Customer" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="7" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="17" end_line="17" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="18" end_line="18" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="22" end_line="22" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="11" name="get_Data()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PagedResult`1" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="8" end_line="8" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="12" name="get_Pagination()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PagedResult`1" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="9" end_line="9" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="13" name=".ctor()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PagedResult`1" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="11" end_line="11" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="14" name=".ctor(System.Collections.Generic.IEnumerable`1&lt;T&gt;,System.Int32,System.Int32,System.Int32)" namespace="GymFlow.CustomerService.Domain.Common" type_name="PagedResult`1" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="11" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="13" end_line="13" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="14" end_line="14" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="15" end_line="15" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="17" end_line="17" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="18" end_line="18" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="22" end_line="22" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="23" end_line="23" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="15" name="get_PageNumber()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PaginationMetadata" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="28" end_line="28" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="16" name="get_PageSize()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PaginationMetadata" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="29" end_line="29" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="17" name="get_TotalRecords()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PaginationMetadata" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="30" end_line="30" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="18" name="get_TotalPages()" namespace="GymFlow.CustomerService.Domain.Common" type_name="PaginationMetadata" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="31" end_line="31" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="CustomerService.Domain\Entities\Customer.cs" />
+        <source_file id="1" path="CustomerService.Domain\Common\PagedResult.cs" />
+        <source_file id="1" path="CustomerService.Domain\Common\PagedResult.cs" />
+      </source_files>
+      <skipped_functions />
+    </module>
+    <module id="53431B6762A37F4F80F4A363546C0D1E01000000" name="CustomerService.Application" path="CustomerService.Application" block_coverage="0.00" line_coverage="87.06" blocks_covered="0" blocks_not_covered="0" lines_covered="74" lines_partially_covered="0" lines_not_covered="11">
+      <functions>
+        <function id="0" name=".ctor()" namespace="GymFlow.CustomerService.Application.Validators" type_name="CustomerValidator" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="7" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="8" end_line="8" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="9" end_line="9" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="10" end_line="10" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="11" end_line="11" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="12" end_line="12" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="13" end_line="13" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="14" end_line="14" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="1" name=".ctor(GymFlow.CustomerService.Domain.Interfaces.ICustomerRepository)" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="4" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="18" end_line="18" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="2" name="&lt;SearchCustomersAsync&gt;b__7_0(GymFlow.CustomerService.Domain.Entities.Customer)" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;&gt;c" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="13" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="96" end_line="96" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="97" end_line="97" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="98" end_line="98" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="99" end_line="99" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="100" end_line="100" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="101" end_line="101" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="102" end_line="102" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="103" end_line="103" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="104" end_line="104" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="105" end_line="105" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="106" end_line="106" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="107" end_line="107" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="108" end_line="108" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="3" name="MoveNext()" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;CreateCustomerAsync&gt;d__4" block_coverage="0.00" line_coverage="76.47" blocks_covered="0" blocks_not_covered="0" lines_covered="13" lines_partially_covered="0" lines_not_covered="4">
+          <ranges>
+            <range source_id="1" start_line="34" end_line="34" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="36" end_line="36" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="37" end_line="37" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="38" end_line="38" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="40" end_line="40" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="41" end_line="41" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="42" end_line="42" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="44" end_line="44" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="45" end_line="45" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="46" end_line="46" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="49" end_line="49" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="50" end_line="50" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="51" end_line="51" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="53" end_line="53" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="54" end_line="54" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="55" end_line="55" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="56" end_line="56" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4" name="MoveNext()" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;DeleteCustomerAsync&gt;d__6" block_coverage="0.00" line_coverage="75.00" blocks_covered="0" blocks_not_covered="0" lines_covered="6" lines_partially_covered="0" lines_not_covered="2">
+          <ranges>
+            <range source_id="1" start_line="81" end_line="81" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="82" end_line="82" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="83" end_line="83" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="84" end_line="84" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="85" end_line="85" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="88" end_line="88" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="89" end_line="89" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="90" end_line="90" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="5" name="MoveNext()" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;GetAllCustomersAsync&gt;d__3" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="3">
+          <ranges>
+            <range source_id="1" start_line="29" end_line="29" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="30" end_line="30" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="31" end_line="31" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="6" name="MoveNext()" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;GetCustomerByIdAsync&gt;d__2" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="24" end_line="24" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="25" end_line="25" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="26" end_line="26" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="7" name="MoveNext()" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;SearchCustomersAsync&gt;d__7" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="4" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="93" end_line="93" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="94" end_line="94" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="110" end_line="110" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="111" end_line="111" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="8" name="MoveNext()" namespace="GymFlow.CustomerService.Application.Services" type_name="CustomerService/&lt;UpdateCustomerAsync&gt;d__5" block_coverage="0.00" line_coverage="87.50" blocks_covered="0" blocks_not_covered="0" lines_covered="14" lines_partially_covered="0" lines_not_covered="2">
+          <ranges>
+            <range source_id="1" start_line="59" end_line="59" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="60" end_line="60" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="61" end_line="61" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="62" end_line="62" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="63" end_line="63" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="67" end_line="67" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="68" end_line="68" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="69" end_line="69" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="70" end_line="70" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="71" end_line="71" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="72" end_line="72" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="73" end_line="73" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="74" end_line="74" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="76" end_line="76" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="77" end_line="77" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="78" end_line="78" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="9" name="get_Id()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="8" end_line="8" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="10" name="get_FullName()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="9" end_line="9" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="11" name="get_Phone()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="10" end_line="10" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="12" name="get_Email()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="11" end_line="11" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="13" name="get_Birthday()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="12" end_line="12" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="14" name="get_Gender()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="13" end_line="13" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="15" name="get_Address()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="14" end_line="14" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="16" name="get_MembershipStatus()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="15" end_line="15" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="17" name="get_CreatedAt()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="18" name="get_UpdatedAt()" namespace="GymFlow.CustomerService.Application.DTOs" type_name="CustomerDto" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="2" start_line="17" end_line="17" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="CustomerService.Application\Validators\CustomerValidator.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="1" path="CustomerService.Application\Services\CustomerService.cs" />
+        <source_file id="2" path="CustomerService.Application\DTOs\CustomerDto.cs" />
+      </source_files>
+      <skipped_functions />
+    </module>
+    <module id="D66026F914718641BC3044A46A1C0FBB01000000" name="CustomerService.Api" path="CustomerService.Api" block_coverage="0.00" line_coverage="85.26" blocks_covered="0" blocks_not_covered="0" lines_covered="81" lines_partially_covered="0" lines_not_covered="14">
+      <functions>
+        <function id="0" name="&lt;Main&gt;$(System.String[])" namespace="Program" type_name="" block_coverage="0.00" line_coverage="98.11" blocks_covered="0" blocks_not_covered="0" lines_covered="52" lines_partially_covered="0" lines_not_covered="1">
+          <ranges>
+            <range source_id="0" start_line="10" end_line="10" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="13" end_line="13" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="14" end_line="14" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="15" end_line="15" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="17" end_line="17" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="18" end_line="18" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="22" end_line="22" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="23" end_line="23" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="25" end_line="25" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="26" end_line="26" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="27" end_line="27" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="28" end_line="28" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="30" end_line="30" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="31" end_line="31" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="33" end_line="33" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="34" end_line="34" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="35" end_line="35" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="36" end_line="36" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="37" end_line="37" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="38" end_line="38" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="39" end_line="39" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="40" end_line="40" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="41" end_line="41" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="42" end_line="42" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="44" end_line="44" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="46" end_line="46" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="48" end_line="48" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="49" end_line="49" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="50" end_line="50" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="51" end_line="51" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="53" end_line="53" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="54" end_line="54" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="55" end_line="55" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="56" end_line="56" start_column="0" end_column="0" covered="no" />
+            <range source_id="0" start_line="57" end_line="57" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="58" end_line="58" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="59" end_line="59" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="60" end_line="60" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="61" end_line="61" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="62" end_line="62" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="66" end_line="66" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="67" end_line="67" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="68" end_line="68" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="69" end_line="69" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="70" end_line="70" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="75" end_line="75" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="77" end_line="77" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="79" end_line="79" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="82" end_line="82" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="1" name=".ctor(GymFlow.CustomerService.Application.Interfaces.ICustomerService)" namespace="GymFlow.CustomerService.Api.Controllers" type_name="CustomersController" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="4" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="18" end_line="18" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="2" name="MoveNext()" namespace="GymFlow.CustomerService.Api.Controllers" type_name="CustomersController/&lt;DeleteCustomer&gt;d__6" block_coverage="0.00" line_coverage="62.50" blocks_covered="0" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="3">
+          <ranges>
+            <range source_id="1" start_line="86" end_line="86" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="88" end_line="88" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="89" end_line="89" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="90" end_line="90" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="92" end_line="92" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="93" end_line="93" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="94" end_line="94" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="96" end_line="96" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="3" name="MoveNext()" namespace="GymFlow.CustomerService.Api.Controllers" type_name="CustomersController/&lt;GetCustomer&gt;d__3" block_coverage="0.00" line_coverage="71.43" blocks_covered="0" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="2">
+          <ranges>
+            <range source_id="1" start_line="37" end_line="37" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="38" end_line="38" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="40" end_line="40" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="41" end_line="41" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="42" end_line="42" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="45" end_line="45" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="46" end_line="46" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4" name="MoveNext()" namespace="GymFlow.CustomerService.Api.Controllers" type_name="CustomersController/&lt;GetCustomers&gt;d__2" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="4" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="29" end_line="29" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="30" end_line="30" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="31" end_line="31" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="32" end_line="32" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="5" name="MoveNext()" namespace="GymFlow.CustomerService.Api.Controllers" type_name="CustomersController/&lt;PostCustomer&gt;d__4" block_coverage="0.00" line_coverage="62.50" blocks_covered="0" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="3">
+          <ranges>
+            <range source_id="1" start_line="51" end_line="51" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="53" end_line="53" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="54" end_line="54" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="55" end_line="55" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="57" end_line="57" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="58" end_line="58" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="59" end_line="59" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="61" end_line="61" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="6" name="MoveNext()" namespace="GymFlow.CustomerService.Api.Controllers" type_name="CustomersController/&lt;PutCustomer&gt;d__5" block_coverage="0.00" line_coverage="54.55" blocks_covered="0" blocks_not_covered="0" lines_covered="6" lines_partially_covered="0" lines_not_covered="5">
+          <ranges>
+            <range source_id="1" start_line="66" end_line="66" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="67" end_line="67" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="68" end_line="68" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="69" end_line="69" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="73" end_line="73" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="74" end_line="74" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="75" end_line="75" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="77" end_line="77" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="78" end_line="78" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="79" end_line="79" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="81" end_line="81" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="CustomerService.Api\Program.cs" />
+        <source_file id="1" path="CustomerService.Api\Controllers\CustomersController.cs" />
+        <source_file id="1" path="CustomerService.Api\Controllers\CustomersController.cs" />
+        <source_file id="1" path="CustomerService.Api\Controllers\CustomersController.cs" />
+        <source_file id="1" path="CustomerService.Api\Controllers\CustomersController.cs" />
+        <source_file id="1" path="CustomerService.Api\Controllers\CustomersController.cs" />
+        <source_file id="1" path="CustomerService.Api\Controllers\CustomersController.cs" />
+      </source_files>
+      <skipped_functions />
+    </module>
+    <module id="2DFBEC47B760774C8CAC1E2A6AB41BAF01000000" name="CustomerService.Infrastructure" path="CustomerService.Infrastructure" block_coverage="0.00" line_coverage="25.99" blocks_covered="0" blocks_not_covered="0" lines_covered="72" lines_partially_covered="0" lines_not_covered="205">
+      <functions>
+        <function id="0" name="Update(GymFlow.CustomerService.Domain.Entities.Customer)" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="36" end_line="36" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="37" end_line="37" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="38" end_line="38" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="1" name="Delete(GymFlow.CustomerService.Domain.Entities.Customer)" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="41" end_line="41" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="42" end_line="42" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="43" end_line="43" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="2" name=".ctor(GymFlow.CustomerService.Infrastructure.Persistence.ApplicationDbContext)" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="4" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="15" end_line="15" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="17" end_line="17" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="18" end_line="18" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="3" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;AddAsync&gt;d__4" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="31" end_line="31" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="32" end_line="32" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="33" end_line="33" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;GetAllAsync&gt;d__3" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="3">
+          <ranges>
+            <range source_id="0" start_line="26" end_line="26" start_column="0" end_column="0" covered="no" />
+            <range source_id="0" start_line="27" end_line="27" start_column="0" end_column="0" covered="no" />
+            <range source_id="0" start_line="28" end_line="28" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="5" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;GetByEmailAsync&gt;d__9" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="56" end_line="56" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="57" end_line="57" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="58" end_line="58" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="6" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;GetByIdAsync&gt;d__2" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="22" end_line="22" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="23" end_line="23" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="7" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;GetByPhoneAsync&gt;d__8" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="51" end_line="51" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="52" end_line="52" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="53" end_line="53" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="8" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;SaveChangesAsync&gt;d__7" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="46" end_line="46" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="47" end_line="47" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="48" end_line="48" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="9" name="MoveNext()" namespace="GymFlow.CustomerService.Infrastructure.Repositories" type_name="CustomerRepository/&lt;SearchCustomersAsync&gt;d__10" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="14" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="61" end_line="61" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="62" end_line="62" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="64" end_line="64" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="65" end_line="65" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="66" end_line="66" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="67" end_line="67" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="68" end_line="68" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="69" end_line="69" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="71" end_line="71" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="73" end_line="73" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="74" end_line="74" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="75" end_line="75" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="77" end_line="77" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="78" end_line="78" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="10" name="get_Customers()" namespace="GymFlow.CustomerService.Infrastructure.Persistence" type_name="ApplicationDbContext" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="1" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="12" end_line="12" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="11" name="OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)" namespace="GymFlow.CustomerService.Infrastructure.Persistence" type_name="ApplicationDbContext" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="29" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="15" end_line="15" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="21" end_line="21" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="22" end_line="22" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="23" end_line="23" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="24" end_line="24" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="25" end_line="25" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="26" end_line="26" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="27" end_line="27" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="28" end_line="28" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="29" end_line="29" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="30" end_line="30" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="31" end_line="31" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="32" end_line="32" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="33" end_line="33" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="34" end_line="34" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="35" end_line="35" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="36" end_line="36" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="37" end_line="37" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="38" end_line="38" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="39" end_line="39" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="40" end_line="40" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="41" end_line="41" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="42" end_line="42" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="45" end_line="45" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="46" end_line="46" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="47" end_line="47" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="12" name=".ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1&lt;GymFlow.CustomerService.Infrastructure.Persistence.ApplicationDbContext&gt;)" namespace="GymFlow.CustomerService.Infrastructure.Persistence" type_name="ApplicationDbContext" block_coverage="0.00" line_coverage="100.00" blocks_covered="0" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="8" end_line="8" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="9" end_line="9" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="10" end_line="10" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="13" name="Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)" namespace="GymFlow.CustomerService.Infrastructure.Persistence.Migrations" type_name="InitialCreate" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="32">
+          <ranges>
+            <range source_id="2" start_line="14" end_line="14" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="15" end_line="15" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="16" end_line="16" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="17" end_line="17" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="18" end_line="18" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="19" end_line="19" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="20" end_line="20" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="21" end_line="21" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="22" end_line="22" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="23" end_line="23" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="24" end_line="24" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="25" end_line="25" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="26" end_line="26" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="27" end_line="27" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="28" end_line="28" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="29" end_line="29" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="30" end_line="30" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="31" end_line="31" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="32" end_line="32" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="33" end_line="33" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="34" end_line="34" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="36" end_line="36" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="37" end_line="37" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="38" end_line="38" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="39" end_line="39" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="40" end_line="40" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="42" end_line="42" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="43" end_line="43" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="44" end_line="44" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="45" end_line="45" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="46" end_line="46" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="47" end_line="47" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="14" name="Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)" namespace="GymFlow.CustomerService.Infrastructure.Persistence.Migrations" type_name="InitialCreate" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="4">
+          <ranges>
+            <range source_id="2" start_line="51" end_line="51" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="52" end_line="52" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="53" end_line="53" start_column="0" end_column="0" covered="no" />
+            <range source_id="2" start_line="54" end_line="54" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="15" name="Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)" namespace="CustomerService.Infrastructure.Migrations" type_name="InitialCreate" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="34">
+          <ranges>
+            <range source_id="3" start_line="13" end_line="13" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="14" end_line="14" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="15" end_line="15" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="16" end_line="16" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="18" end_line="18" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="19" end_line="19" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="20" end_line="20" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="21" end_line="21" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="22" end_line="22" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="23" end_line="23" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="24" end_line="24" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="25" end_line="25" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="26" end_line="26" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="27" end_line="27" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="28" end_line="28" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="29" end_line="29" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="30" end_line="30" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="31" end_line="31" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="32" end_line="32" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="33" end_line="33" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="34" end_line="34" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="35" end_line="35" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="36" end_line="36" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="38" end_line="38" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="39" end_line="39" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="40" end_line="40" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="41" end_line="41" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="42" end_line="42" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="44" end_line="44" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="45" end_line="45" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="46" end_line="46" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="47" end_line="47" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="48" end_line="48" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="49" end_line="49" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="16" name="Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)" namespace="CustomerService.Infrastructure.Migrations" type_name="InitialCreate" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="4">
+          <ranges>
+            <range source_id="3" start_line="53" end_line="53" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="54" end_line="54" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="55" end_line="55" start_column="0" end_column="0" covered="no" />
+            <range source_id="3" start_line="56" end_line="56" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="17" name="BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)" namespace="CustomerService.Infrastructure.Migrations" type_name="InitialCreate" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="64">
+          <ranges>
+            <range source_id="4" start_line="20" end_line="20" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="22" end_line="22" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="23" end_line="23" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="24" end_line="24" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="26" end_line="26" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="27" end_line="27" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="28" end_line="28" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="30" end_line="30" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="31" end_line="31" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="32" end_line="32" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="33" end_line="33" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="34" end_line="34" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="35" end_line="35" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="36" end_line="36" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="37" end_line="37" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="38" end_line="38" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="39" end_line="39" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="40" end_line="40" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="41" end_line="41" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="42" end_line="42" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="43" end_line="43" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="44" end_line="44" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="45" end_line="45" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="46" end_line="46" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="47" end_line="47" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="48" end_line="48" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="49" end_line="49" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="50" end_line="50" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="51" end_line="51" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="52" end_line="52" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="53" end_line="53" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="54" end_line="54" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="55" end_line="55" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="56" end_line="56" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="57" end_line="57" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="58" end_line="58" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="59" end_line="59" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="60" end_line="60" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="61" end_line="61" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="62" end_line="62" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="63" end_line="63" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="64" end_line="64" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="65" end_line="65" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="66" end_line="66" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="67" end_line="67" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="68" end_line="68" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="69" end_line="69" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="70" end_line="70" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="71" end_line="71" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="72" end_line="72" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="73" end_line="73" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="74" end_line="74" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="75" end_line="75" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="76" end_line="76" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="77" end_line="77" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="78" end_line="78" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="79" end_line="79" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="80" end_line="80" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="81" end_line="81" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="82" end_line="82" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="83" end_line="83" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="84" end_line="84" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="85" end_line="85" start_column="0" end_column="0" covered="no" />
+            <range source_id="4" start_line="87" end_line="87" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="18" name="BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)" namespace="CustomerService.Infrastructure.Migrations" type_name="ApplicationDbContextModelSnapshot" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="0" lines_covered="0" lines_partially_covered="0" lines_not_covered="64">
+          <ranges>
+            <range source_id="5" start_line="17" end_line="17" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="19" end_line="19" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="20" end_line="20" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="21" end_line="21" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="23" end_line="23" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="24" end_line="24" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="25" end_line="25" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="27" end_line="27" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="28" end_line="28" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="29" end_line="29" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="30" end_line="30" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="31" end_line="31" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="32" end_line="32" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="33" end_line="33" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="34" end_line="34" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="35" end_line="35" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="36" end_line="36" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="37" end_line="37" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="38" end_line="38" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="39" end_line="39" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="40" end_line="40" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="41" end_line="41" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="42" end_line="42" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="43" end_line="43" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="44" end_line="44" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="45" end_line="45" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="46" end_line="46" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="47" end_line="47" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="48" end_line="48" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="49" end_line="49" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="50" end_line="50" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="51" end_line="51" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="52" end_line="52" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="53" end_line="53" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="54" end_line="54" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="55" end_line="55" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="56" end_line="56" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="57" end_line="57" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="58" end_line="58" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="59" end_line="59" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="60" end_line="60" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="61" end_line="61" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="62" end_line="62" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="63" end_line="63" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="64" end_line="64" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="65" end_line="65" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="66" end_line="66" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="67" end_line="67" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="68" end_line="68" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="69" end_line="69" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="70" end_line="70" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="71" end_line="71" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="72" end_line="72" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="73" end_line="73" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="74" end_line="74" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="75" end_line="75" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="76" end_line="76" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="77" end_line="77" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="78" end_line="78" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="79" end_line="79" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="80" end_line="80" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="81" end_line="81" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="82" end_line="82" start_column="0" end_column="0" covered="no" />
+            <range source_id="5" start_line="84" end_line="84" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="0" path="CustomerService.Infrastructure\Repositories\CustomerRepository.cs" />
+        <source_file id="1" path="CustomerService.Infrastructure\Persistence\ApplicationDbContext.cs" />
+        <source_file id="2" path="CustomerService.Infrastructure\Persistence\Migrations\20250907000000_InitialCreate.cs" />
+        <source_file id="3" path="CustomerService.Infrastructure\Migrations\20250907121216_InitialCreate.cs" />
+        <source_file id="4" path="CustomerService.Infrastructure\Migrations\20250907121216_InitialCreate.Designer.cs" />
+        <source_file id="5" path="CustomerService.Infrastructure\Migrations\ApplicationDbContextModelSnapshot.cs" />
+      </source_files>
+      <skipped_functions />
+    </module>
+  </modules>
+</results>

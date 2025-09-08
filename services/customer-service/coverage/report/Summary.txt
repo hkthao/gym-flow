@@ -1,0 +1,41 @@
+Summary
+  Generated on: 07/09/2025 - 7:40:11 CH
+  Coverage date: 06/09/2025 - 8:04:32 CH - 07/09/2025 - 7:40:04 CH
+  Parser: MultiReport (16x Cobertura)
+  Assemblies: 4
+  Classes: 13
+  Files: 13
+  Line coverage: 57.7%
+  Covered lines: 284
+  Uncovered lines: 208
+  Coverable lines: 492
+  Total lines: 815
+  Branch coverage: 95% (19 of 20)
+  Covered branches: 19
+  Total branches: 20
+  Method coverage: 88.8% (56 of 63)
+  Full method coverage: 85.7% (54 of 63)
+  Covered methods: 56
+  Fully covered methods: 54
+  Total methods: 63
+
+CustomerService.Api                                                             98.9%
+  GymFlow.CustomerService.Api.Controllers.CustomersController                    100%
+  Program                                                                       98.1%
+
+CustomerService.Application                                                     94.1%
+  GymFlow.CustomerService.Application.DTOs.CustomerDto                           100%
+  GymFlow.CustomerService.Application.Services.CustomerService                  92.6%
+  GymFlow.CustomerService.Application.Validators.CustomerValidator               100%
+
+CustomerService.Domain                                                           100%
+  GymFlow.CustomerService.Domain.Common.PagedResult<T>                           100%
+  GymFlow.CustomerService.Domain.Common.PaginationMetadata                       100%
+  GymFlow.CustomerService.Domain.Entities.Customer                               100%
+
+CustomerService.Infrastructure                                                    27%
+  CustomerService.Infrastructure.Migrations.ApplicationDbContextModelSnapshot      0%
+  CustomerService.Infrastructure.Migrations.InitialCreate                          0%
+  GymFlow.CustomerService.Infrastructure.Persistence.ApplicationDbContext        100%
+  GymFlow.CustomerService.Infrastructure.Persistence.Migrations.InitialCreate      0%
+  GymFlow.CustomerService.Infrastructure.Repositories.CustomerRepository         100%

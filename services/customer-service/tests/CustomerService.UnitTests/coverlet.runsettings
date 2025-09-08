@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage" uri="ms-collector://Microsoft/TestPlatform/Extensions/Coverlet/V1" assemblyQualifiedName="Coverlet.Collector.DataCollector, coverlet.collector, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Include>[GymFlow.CustomerService.Application]*;[GymFlow.CustomerService.Domain]*;[GymFlow.CustomerService.Infrastructure]*</Include>
+          <ExcludeByFile>**/Migrations/*.cs</ExcludeByFile>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

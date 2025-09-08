@@ -19,7 +19,12 @@ services:
   customer-service:
     build: ./services/customer-service
     ports:
-      - "5001:5001"
+      - "5001:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres-db;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+    depends_on:
+      postgres-db:
+        condition: service_healthy
     networks:
       - gymflow-network
     logging: *default-logging
@@ -40,14 +45,31 @@ services:
       - gymflow-network
     logging: *default-logging
 
+  admin-dashboard:
+    build:
+      context: ./services/admin-dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - gymflow-network
+    logging: *default-logging
+
   postgres-db:
     image: postgres:13
     environment:
-      POSTGRES_DB: gymflow_db
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d gymflow_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     networks:
       - gymflow-network
     logging: *default-logging

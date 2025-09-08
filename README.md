@@ -3,16 +3,27 @@ GymFlow - Ứng dụng quản lý khách hàng và check-in/out cho phòng gym, 
 
 ## Local Development Workflow
 
+This project uses Docker Compose and a `.env` file for local development.
+
+### Setup
+
+1.  **Create Environment File:**
+    Copy the `.env.example` file to a new file named `.env`.
+    ```bash
+    cp .env.example .env
+    ```
+    Update the values in `.env` if needed, though the defaults are suitable for local development.
+
+2.  **Build and Run Backend:**
+    To build and run all backend services (including the database):
+    ```bash
+    # Build and start all backend containers
+    docker-compose up --build -d
+    ```
+
 This project is set up for a flexible local development experience, allowing you to run backend and frontend services independently.
 
 ### Running Backend Services
-
-To build and run all backend services (including the database):
-
-```bash
-# Build and start all backend containers
-docker-compose up --build -d
-```
 
 The services will be accessible at:
 - AI Face Service: `http://localhost:5000`
@@ -40,6 +51,7 @@ For frontend development with hot-reloading, it's recommended to run the Vue dev
 
 ### Running Frontend Service (Docker)
 
+<<<<<<< HEAD
 To build and run the frontend as a Docker container (without hot-reload):
 
 ```bash
@@ -47,7 +59,59 @@ To build and run the frontend as a Docker container (without hot-reload):
 docker-compose -f docker-compose.frontend.yml up --build -d
 ```
 The dashboard will be accessible at `http://localhost:8081`.
+## Database Migrations (`customer-service`)
+
+The `customer-service` uses EF Core Code-First migrations. All migration commands should be run from the `services/customer-service` directory.
+
+### 1. Install EF Core Tools
+
+First, ensure you have the `dotnet-ef` tool installed locally for the project.
+
+```bash
+# Navigate to the service directory
+cd services/customer-service
+
+# Create a tool manifest if it doesn't exist
+dotnet new tool-manifest --force
+
+# Install the tool
+dotnet tool install dotnet-ef
+```
+
+### 2. Creating a New Migration
+
+After you make changes to the entity models in the `CustomerService.Domain` project, you need to create a new migration.
+
+```bash
+dotnet ef migrations add <MigrationName> --project src/CustomerService.Infrastructure --startup-project src/CustomerService.Api
+```
+
+-   **`<MigrationName>`**: A descriptive name for your migration (e.g., `AddMembershipTier`).
+-   `--project`: Specifies that the migration files should be created in the `Infrastructure` project.
+-   `--startup-project`: Specifies the `Api` project, which contains the connection string and service configurations needed to generate the migration.
+
+### 3. Applying Migrations to the Database
+
+To apply your migrations to the local PostgreSQL database running in Docker, use the `database update` command.
+
+**Important:** Ensure your Docker containers are running (`docker-compose up -d`) before executing this command.
+
+```bash
+dotnet ef database update --project src/CustomerService.Infrastructure --startup-project src/CustomerService.Api
+```
+
+This command reads the connection string from `appsettings.Development.json` (which should point to `localhost:5432`) and applies any pending migrations to the database container.
+
 ## Running Tests
+
+### Frontend (admin-dashboard)
+
+To run the unit tests for the `admin-dashboard`, navigate to the `services/admin-dashboard` directory and run the test script:
+
+```bash
+cd services/admin-dashboard
+npm run test:unit
+```
 
 ### Python (ai-face-service)
 
@@ -117,48 +181,30 @@ To configure branch protection:
     *   Select the **`lint-python`**, **`test-python`**, **`build-and-push-python`**, **`lint-dotnet`**, **`test-dotnet`** and **`build-and-push-dotnet`** jobs from the list of status checks.
 6.  Click **Create**.
 
-## Monitoring and Logging with Prometheus and Grafana
+## Monitoring and Logging
 
-This project integrates Prometheus for metrics collection and Grafana for visualization, along with centralized JSON logging.
+This project uses Prometheus for metrics and Grafana for dashboards. All monitoring-related configuration files are located in the `/monitoring` directory.
 
 ### Running Prometheus and Grafana
 
-To run Prometheus and Grafana alongside your services, use the `docker-compose.override.yml` file:
+To run the monitoring stack alongside the application services, use the `docker-compose.override.yml` file:
 
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 ```
 
-This command will start all your microservices, plus Prometheus and Grafana.
+- **Prometheus:** `http://localhost:9090`
+- **Grafana:** `http://localhost:3000` (admin/admin)
+- **Alertmanager:** `http://localhost:9093`
 
-### Accessing Grafana Dashboard
+### Centralized Logging
 
-Once Grafana is running, you can access its dashboard:
-
-1.  Open your web browser and navigate to `http://localhost:3000`.
-2.  Log in with the default credentials: Username `admin`, Password `admin`. You will be prompted to change the password on your first login.
-3.  **Add Prometheus Data Source:**
-    *   Click on the "Configuration" (gear icon) on the left sidebar.
-    *   Select "Data sources".
-    *   Click "Add data source".
-    *   Choose "Prometheus".
-    *   Set the "Name" to `Prometheus`.
-    *   Set the "HTTP" -> "URL" to `http://prometheus:9090`.
-    *   Click "Save & Test".
-4.  You can now create dashboards to visualize your application metrics. Refer to the Grafana documentation for detailed dashboard creation.
-
-### Viewing Centralized Logs
-
-All microservices are configured to output logs in JSON format, which are collected by Docker's `json-file` logging driver. You can view these centralized logs using `docker-compose logs`:
+All microservices are configured to output logs in JSON format. You can view these logs using `docker-compose logs`:
 
 ```bash
+# View logs for a specific service
 docker-compose logs <service_name>
-```
 
-Replace `<service_name>` with `ai-face-service`, `auth-service`, `checkin-service`, or `customer-service`.
-
-To view all logs in real-time:
-
-```bash
+# View all logs in real-time
 docker-compose logs -f
 ```

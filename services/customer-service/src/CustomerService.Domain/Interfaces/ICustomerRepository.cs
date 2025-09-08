@@ -15,6 +15,6 @@ namespace GymFlow.CustomerService.Domain.Interfaces
         Task<int> SaveChangesAsync();
         Task<Customer> GetByPhoneAsync(string phone);
         Task<Customer> GetByEmailAsync(string email);
-        Task<(IEnumerable<Customer> customers, int totalRecords)> SearchCustomersAsync(string? keyword, int pageNumber, int pageSize);
+        Task<(IEnumerable<Customer> customers, int totalRecords)> SearchCustomersAsync(string? keyword, string? status, int pageNumber, int pageSize);
     }
 }

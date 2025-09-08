@@ -124,11 +124,11 @@ namespace GymFlow.CustomerService.UnitTests
                 new Customer { Id = Guid.NewGuid(), FullName = "Test Customer 5" }
             };
 
-            _mockCustomerRepository.Setup(repo => repo.SearchCustomersAsync(keyword, pageNumber, pageSize))
+            _mockCustomerRepository.Setup(repo => repo.SearchCustomersAsync(keyword, null, pageNumber, pageSize))
                                    .ReturnsAsync((customers, totalRecords));
 
             // Act
-            var result = await _customerService.SearchCustomersAsync(keyword, pageNumber, pageSize);
+            var result = await _customerService.SearchCustomersAsync(keyword, null, pageNumber, pageSize);
 
             // Assert
             result.Should().NotBeNull();

@@ -89,9 +89,9 @@ namespace GymFlow.CustomerService.Application.Services
             await _customerRepository.SaveChangesAsync();
         }
 
-        public async Task<PagedResult<CustomerDto>> SearchCustomersAsync(string? keyword, int pageNumber, int pageSize)
+        public async Task<PagedResult<CustomerDto>> SearchCustomersAsync(string? keyword, string? status, int pageNumber, int pageSize)
         {
-            var (customers, totalRecords) = await _customerRepository.SearchCustomersAsync(keyword, pageNumber, pageSize);
+            var (customers, totalRecords) = await _customerRepository.SearchCustomersAsync(keyword, status, pageNumber, pageSize);
 
             var customerDtos = customers.Select(c => new CustomerDto
             {

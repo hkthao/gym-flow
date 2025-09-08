@@ -57,7 +57,7 @@ namespace GymFlow.CustomerService.Infrastructure.Repositories
             return await _context.Customers.FirstOrDefaultAsync(c => c.Email == email);
         }
 
-        public virtual async Task<(IEnumerable<Customer> customers, int totalRecords)> SearchCustomersAsync(string? keyword, int pageNumber, int pageSize)
+        public virtual async Task<(IEnumerable<Customer> customers, int totalRecords)> SearchCustomersAsync(string? keyword, string? status, int pageNumber, int pageSize)
         {
             var query = _context.Customers.AsQueryable();
 
@@ -66,6 +66,11 @@ namespace GymFlow.CustomerService.Infrastructure.Repositories
                 query = query.Where(c => c.FullName.Contains(keyword) ||
                                          c.Phone.Contains(keyword) ||
                                          c.Email.Contains(keyword));
+            }
+
+            if (!string.IsNullOrWhiteSpace(status) && Enum.TryParse<Domain.Enums.MembershipStatus>(status, true, out var statusEnum))
+            {
+                query = query.Where(c => c.MembershipStatus == statusEnum);
             }
 
             var totalRecords = await query.CountAsync();
