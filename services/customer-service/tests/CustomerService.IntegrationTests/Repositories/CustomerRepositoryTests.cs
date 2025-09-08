@@ -32,7 +32,7 @@ namespace CustomerService.IntegrationTests.Repositories
             await _context.SaveChangesAsync();
 
             // Act
-                        var (customers, totalRecords) = await _repository.SearchCustomersAsync("Test User 1", null, 1, 10);
+            var (customers, totalRecords) = await _repository.SearchCustomersAsync("Test User 1", null, 1, 10);
 
             // Assert
             Assert.Single(customers);
