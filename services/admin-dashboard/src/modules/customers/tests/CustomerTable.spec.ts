@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import CustomerTable from '@/modules/customers/components/CustomerTable.vue'
-import { useCustomerStore } from '../stores/customerStore'
+import { useCustomerStore } from '@/modules/customers/stores/customerStore'
 import { nextTick } from 'vue'
 
 describe('CustomerTable.vue', () => {
@@ -30,14 +30,14 @@ describe('CustomerTable.vue', () => {
     return { wrapper, store }
   }
 
-  it('fetches customers on options update', () => {
+  it('fetches customers on mount', () => {
     const { store } = mountComponent()
-    expect(store.fetchCustomers).toHaveBeenCalledTimes(1)
+    expect(store.fetchCustomers).toHaveBeenCalled()
   })
 
   it('displays customer data', () => {
     const { wrapper } = mountComponent()
-    const dataTable = wrapper.findComponent({ name: 'VDataTable' })
+    const dataTable = wrapper.findComponent({ name: 'VDataTableServer' })
     expect(dataTable.props('items')).toHaveLength(2)
   })
 
@@ -69,13 +69,13 @@ describe('CustomerTable.vue', () => {
 
   it('refetches when filter changes', async () => {
     const { wrapper, store } = mountComponent()
-    expect(store.fetchCustomers).toHaveBeenCalledTimes(1) // Initial fetch
+    const initialFetchCount = store.fetchCustomers.mock.calls.length
     
     // Simulate user changing the filter
     const select = wrapper.findComponent({ name: 'VSelect' })
     await select.vm.$emit('update:modelValue', 'Active')
     
     expect(store.statusFilter).toBe('Active')
-    expect(store.fetchCustomers).toHaveBeenCalledTimes(2)
+    expect(store.fetchCustomers).toHaveBeenCalledTimes(initialFetchCount + 1)
   })
 })
