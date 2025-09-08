@@ -128,7 +128,7 @@ namespace GymFlow.CustomerService.UnitTests
                                    .ReturnsAsync((customers, totalRecords));
 
             // Act
-            var result = await _customerService.SearchCustomersAsync(keyword, pageNumber, pageSize);
+            var result = await _customerService.SearchCustomersAsync(keyword, null, pageNumber, pageSize);
 
             // Assert
             result.Should().NotBeNull();
