@@ -1,6 +1,8 @@
 # Các Test Case của Customer Service
 
-Đây là danh sách các test case hiện có cho dịch vụ `customer-service`, được trích xuất từ các dự án unit test và integration test.
+Tài liệu này cung cấp tổng quan chi tiết về các test case hiện có cho dịch vụ `customer-service`. Các test case được phân loại dựa trên loại hình kiểm thử (Unit Test, Integration Test) và tập trung vào các khía cạnh chính của dịch vụ như quản lý khách hàng (CRUD), logic nghiệp vụ, và tương tác với cơ sở dữ liệu.
+
+Mục tiêu của tài liệu này là giúp các nhà phát triển khác nhanh chóng nắm bắt được phạm vi kiểm thử hiện tại của `customer-service`, hiểu rõ các kịch bản đã được kiểm tra, và dễ dàng xác định nơi cần bổ sung test case khi phát triển tính năng mới hoặc sửa lỗi.
 
 ## 1. CustomerService.UnitTests/CustomerServiceTests.cs
 
