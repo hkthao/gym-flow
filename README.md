@@ -1,7 +1,7 @@
 # gym-flow
 GymFlow - Ứng dụng quản lý khách hàng và check-in/out cho phòng gym, xây dựng theo kiến trúc microservices và CI/CD.
-![Build Status](https://github.com/hkthao/gym-flow/actions/workflows/ci-build.yaml/badge.svg)
-![Build Status](https://github.com/hkthao/gym-flow/actions/workflows/frontend-ci.yaml/badge.svg)
+![Build Status](https://github.com/hkthao/gym-flow/actions/workflows/ci-build.yml/badge.svg)
+![Build Status](https://github.com/hkthao/gym-flow/actions/workflows/frontend-ci.yml/badge.svg)
 ## Local Development Workflow
 
 This project uses Docker Compose and a `.env` file for local development.
